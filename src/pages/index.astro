@@ -1,4 +1,6 @@
 ---
+import Header from "../layouts/header.astro";
+import Footer from "../layouts/footer.astro";
 const pageTitle = "Home";
 ---
 
@@ -11,13 +13,9 @@ const pageTitle = "Home";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<h1>Shounak Das</h1>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/about">About</a></li>
-			</ul>
-		</nav>
+		<Header />
+		<!-- TODO: Tags list -->
+		<!-- TODO: 10 recent posts -->
+		<Footer />
 	</body>
 </html>
