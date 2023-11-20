@@ -1,9 +1,14 @@
 ---
 import Base from "../layouts/base.astro";
+import { Image } from "astro:assets";
+import avatar from "../../public/images/avatar.jpg"
 const pageTitle = "Home";
 ---
 
 <Base title = {pageTitle}>
   <!-- TODO: Tags list -->
   <!-- TODO: 10 recent posts -->
+  <!-- TODO: Add image and info -->
+  <Image src={avatar} alt="Tom Cruise? Is that you? Wait no..." width="150" />
+
 </Base>
