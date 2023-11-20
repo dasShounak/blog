@@ -1,21 +1,9 @@
 ---
-import Header from "../layouts/header.astro";
-import Footer from "../layouts/footer.astro";
+import Base from "../layouts/base.astro";
 const pageTitle = "Home";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<Header />
-		<!-- TODO: Tags list -->
-		<!-- TODO: 10 recent posts -->
-		<Footer />
-	</body>
-</html>
+<Base title = {pageTitle}>
+  <!-- TODO: Tags list -->
+  <!-- TODO: 10 recent posts -->
+</Base>
