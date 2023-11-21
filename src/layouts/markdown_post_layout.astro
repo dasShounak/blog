@@ -8,4 +8,5 @@ const {frontmatter} = Astro.props;
     <h2>{frontmatter.description}</h2>
     <h3>{frontmatter.publishDate.toString().slice(0,10)}</h3>
     <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+    <slot />
 </Base>
