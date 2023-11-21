@@ -1,5 +1,12 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from 'astro/config';
+import tailwind from "@astrojs/tailwind";
 
+// https://astro.build/config
 export default defineConfig({
-  // your configuration options here...
-})
+  integrations: [
+    tailwind({
+      applyBaseStyles: true,
+    }
+  )]
+} // your configuration options here...
+);
