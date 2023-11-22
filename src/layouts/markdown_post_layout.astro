@@ -5,10 +5,10 @@ const { frontmatter } = Astro.props;
 ---
 
 <Base title={frontmatter.title}>
-  <div class="mt-10">
+  <div class="mt-10 prose prose-slate prose-invert max-w-none text-xl">
     <h1 class="text-3xl mb-3 font-semibold">{frontmatter.title}</h1>
     <h2 class="text-2xl mb-2 opacity-80">{frontmatter.description}</h2>
-    <h3 class="text-slate-500">{frontmatter.publishDate.toString().slice(0, 10)}</h3>
+    <h3 class="text-slate-500 text-base">{frontmatter.publishDate.toString().slice(0, 10)}</h3>
     <hr class="opacity-20 mt-3 mb-10" />
     <slot />
   </div>
