@@ -8,8 +8,16 @@ const pageTitle = "Home";
 <Base title={pageTitle}>
   <!-- TODO: Tags list -->
   <!-- TODO: 10 recent posts -->
-  <!-- TODO: Wrap the image in a container and clip it -->
-  <div class="container w-40 h-auto rounded-full object-contain overflow-hidden">
-    <Image src={avatar} alt="Tom Cruise? Is that you? Wait no..." class="scale-110" />
+  <div class="flex flex-row justify-center space-x-20 items-center h-[60vh] grow">
+    <div class="container w-52 h-auto rounded-full object-contain overflow-hidden">
+      <Image src={avatar} alt="Tom Cruise? Is that you? Wait no..." class="scale-110" />
+    </div>
+    <div>
+      <p class="text-4xl font-semibold mb-4">Hi! I'm Shounak</p>
+      <ul class="text-2xl">
+        <li>👉 Ethical Hacker</li>
+        <li>👉 Web Developer</li>
+      </ul>
+    </div>
   </div>
 </Base>
