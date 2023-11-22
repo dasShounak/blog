@@ -1,5 +1,20 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, date, imageUrl, imageAlt, description } = Astro.props;
+const limitDescriptionLength = false;
+const descriptionLength = 50;
+const truncDesription = (desc) => {
+  if (limitDescriptionLength) {
+    return desc.length < descriptionLength ? desc : desc.substring(0, 50) + "...";
+  } else {
+    return desc;
+  }
+};
 ---
 
-<li><a href={`/posts/${url}`}>{title}</a></li>
+<div class="container bg-slate-900 rounded-lg drop-shadow-2xl">
+  <div class="pt-3 pb-5 px-3">
+    <h2 class="text-xl font-semibold mb-1"><a href={`/posts/${url}`}>{title}</a></h2>
+    <p class="text-slate-500 mb-4">{date}</p>
+    <p class="opacity-80">{truncDesription(description)}</p>
+  </div>
+</div>
