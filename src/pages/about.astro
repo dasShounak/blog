@@ -1,17 +1,22 @@
 ---
 import Base from "../layouts/base.astro";
+import PageTitle from "../components/page_title.astro";
+import { Image } from "astro:assets";
+import aboutme from "../../public/images/aboutme.jpg";
 const pageTitle = "About Me";
 ---
 
 <Base title={pageTitle}>
-  <h2>{pageTitle}</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis et corrupti nesciunt dolores, quae nulla quas iure
-    veritatis, accusamus nam inventore ea neque nihil, repudiandae consequuntur eius voluptates. Error voluptates
-    laborum deleniti modi dicta sapiente, necessitatibus architecto voluptatem veritatis soluta corrupti accusantium
-    reiciendis quis vero tenetur dolore itaque in nesciunt a autem nulla dolor non, explicabo deserunt. Non odio nulla
-    nesciunt eum ab natus hic. Nesciunt totam molestias, explicabo enim, tempore incidunt ea voluptas animi porro
-    voluptates alias rerum corrupti perferendis similique ipsum doloribus perspiciatis cupiditate quasi, atque qui
-    numquam ex. Non ab nisi blanditiis quam odit quae, velit repellat?
+  <PageTitle title={pageTitle} />
+  <!-- <Image src={aboutme} alt="Photo of me posing for the camera" /> -->
+  <p class="text-xl leading-loose">
+    Technology has the power to transform our lives. It has opened up new opportunities, connecting us to people from
+    around the world and giving us access to knowledge and resources we never thought possible before. My journey in
+    tech began with a curiosity that led me down the path of learning more about Information Security, Computer Science
+    and Web Development. Along my way, I'm also sharing my experience and knowledge here as I go along. Join me as I
+    explore the ever-changing world of technology, one line of code at a time!
+    <p class="text-xl mt-5">
+      <i>84ck_783_914n37</i>
+    </p>
   </p>
 </Base>

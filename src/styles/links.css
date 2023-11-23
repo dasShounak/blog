@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    a {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 0.3s ease;
+    }
+
+    a:hover {
+        @apply text-teal-300 transition-all duration-300;
+        text-decoration-color: currentColor;
+    }
+
+    nav a {
+        padding-left: 20px;
+    }
+
+    nav li {
+        position: relative;
+    }
+
+    nav span {
+        position: absolute;
+        left: 6px;
+        z-index: -10;
+    }
+
+    #site-name a {
+        text-decoration: none !important;
+    }
+}

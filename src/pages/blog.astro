@@ -1,19 +1,28 @@
 ---
 import Base from "../layouts/base.astro";
+import PageTitle from "../components/page_title.astro";
+import BlogPost from "../components/blog_post.astro";
+import BlogGrid from "../components/blog_grid.astro";
+import { getCollection } from "astro:content";
 const pageTitle = "Blog";
-const allPosts = await Astro.glob("./posts/*.md");
+const allBlogPosts = await getCollection("posts");
 ---
 
 <Base title={pageTitle}>
-  <h2>{pageTitle}</h2>
+  <PageTitle title={pageTitle} />
   <!-- List all blogs -->
-  <ul>
-    {
-      allPosts.map((post) => (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="grow">
+    <BlogGrid>
+      {
+        allBlogPosts.reverse().map((post) => (
+          <BlogPost
+            url={post.slug}
+            title={post.data.title}
+            date={post.data.publishDate.toUTCString().slice(4, 16)}
+            description={post.data.description}
+          />
+        ))
+      }
+    </BlogGrid>
+  </div>
 </Base>
