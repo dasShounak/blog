@@ -11,16 +11,18 @@ const allBlogPosts = await getCollection("posts");
 <Base title={pageTitle}>
   <PageTitle title={pageTitle} />
   <!-- List all blogs -->
-  <BlogGrid>
-    {
-      allBlogPosts.map((post) => (
-        <BlogPost
-          url={post.slug}
-          title={post.data.title}
-          date={post.data.publishDate.toUTCString().slice(4, 16)}
-          description={post.data.description}
-        />
-      ))
-    }
-  </BlogGrid>
+  <div class="grow">
+    <BlogGrid>
+      {
+        allBlogPosts.reverse().map((post) => (
+          <BlogPost
+            url={post.slug}
+            title={post.data.title}
+            date={post.data.publishDate.toUTCString().slice(4, 16)}
+            description={post.data.description}
+          />
+        ))
+      }
+    </BlogGrid>
+  </div>
 </Base>
