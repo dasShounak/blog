@@ -18,8 +18,6 @@ const allBlogPosts = await getCollection("posts");
           url={post.slug}
           title={post.data.title}
           date={post.data.publishDate.toUTCString().slice(4, 16)}
-          imageUrl={post.data.image.url}
-          imageAlt={post.data.image.alt}
           description={post.data.description}
         />
       ))
