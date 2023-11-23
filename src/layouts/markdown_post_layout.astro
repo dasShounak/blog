@@ -4,7 +4,6 @@ import Tag from "../components/tag.astro";
 import "../styles/links.css";
 const { frontmatter } = Astro.props;
 const allTags = await frontmatter.tags;
-console.log(allTags);
 ---
 
 <Base title={frontmatter.title}>
@@ -14,7 +13,7 @@ console.log(allTags);
   >
     <h1 class="font-semibold my-0 mb-6">{frontmatter.title}</h1>
     <h2 class="opacity-80 font-normal my-0 mb-4">{frontmatter.description}</h2>
-    <h3 class="text-slate-500 font-normal">{frontmatter.publishDate.toString().slice(0, 10)}</h3>
+    <h3 class="text-slate-500 font-normal">{frontmatter.publishDate.toUTCString().slice(4, 16)}</h3>
     <div class="flex flex-row justify-start space-x-3 mt-6">
       {allTags.map((tag) => <Tag>{tag}</Tag>)}
     </div>
