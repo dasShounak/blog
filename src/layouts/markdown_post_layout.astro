@@ -1,12 +1,23 @@
 ---
-import Base from "./base.astro"
-const {frontmatter} = Astro.props;
+import Base from "./base.astro";
+import Tag from "../components/tag.astro";
+import "../styles/links.css";
+const { frontmatter } = Astro.props;
+const allTags = await frontmatter.tags;
 ---
 
 <Base title={frontmatter.title}>
-    <h1>{frontmatter.title}</h1>
-    <h2>{frontmatter.description}</h2>
-    <h3>{frontmatter.publishDate.toString().slice(0,10)}</h3>
-    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+  <!-- TODO: Add sidebar -->
+  <div
+    class="mt-10 prose prose-slate prose-xl prose-invert prose-h2:text-2xl prose-h3:text-xl prose-headings:text-4xl max-w-none px-10 prose-a:text-teal-300 prose-a:no-underline hover:prose-a:underline"
+  >
+    <h1 class="font-semibold my-0 mb-6">{frontmatter.title}</h1>
+    <h2 class="opacity-80 font-normal my-0 mb-4">{frontmatter.description}</h2>
+    <h3 class="text-slate-500 font-normal">{frontmatter.publishDate.toUTCString().slice(4, 16)}</h3>
+    <div class="flex flex-row justify-start space-x-3 mt-6">
+      {allTags.map((tag) => <Tag>{tag}</Tag>)}
+    </div>
+    <hr class="mt-6 mb-14" />
     <slot />
+  </div>
 </Base>

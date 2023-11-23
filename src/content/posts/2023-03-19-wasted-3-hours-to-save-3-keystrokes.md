@@ -2,11 +2,7 @@
 title: Wasted 3 hours to save 3 keystrokes
 publishDate: 2023-03-19
 description: 'I am building a command line tool using rust to save a couple of redundant keystrokes. But in the process, I wasted 3 hours, in a productive way.'
-author: 'Shounak Das'
-image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
-    alt: 'The full Astro logo.'uthor: 'Shounak Das'
-tags: ['rust', 'cli', 'opensource']
+tags: ['rust']
 ---
 It was a nice Sunday afternoon when I realized that my mid-semester exams are starting from this Friday. So, I decided to start studying, and fired up Google Classroom on the good old Firefox. As always, I was signed out of my college Gmail account (they do this every 15 minutes or so). After 3 or 4 attempts, I was able to guess the password. Then I spent the next 10 minutes trying to decide which subject to pick, as usual.
 
