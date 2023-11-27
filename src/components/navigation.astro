@@ -1,11 +1,14 @@
 ---
+import MobileNav from "./mobile_navigation.astro";
 import "../styles/links.css";
 ---
 
-<nav>
+<nav class="hidden sm:block">
   <ul class="flex justify-center">
-    <li class="px-2"><span>🏠 </span><a href="/">Home</a></li>
-    <li class="px-2"><span>✍ </span><a href="/blog">Blog</a></li>
-    <li class="px-2"><span>🤵 </span><a href="/about">About</a></li>
+    <li class="px-2"><span class="z-auto">🏠</span><a href="/">Home</a></li>
+    <li class="px-2"><span class="z-auto">✍</span><a href="/blog">Blog</a></li>
+    <li class="px-2"><span class="z-auto">🤵</span><a href="/about">About</a></li>
   </ul>
 </nav>
+
+<MobileNav />

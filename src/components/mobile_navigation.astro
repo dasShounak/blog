@@ -1,0 +1,35 @@
+---
+import Hamburger from "./hamburger.astro";
+import Cross from "./cross.astro";
+import "../styles/links.css";
+---
+
+<script>
+  document.getElementById("close").addEventListener("click", () => {
+    document.getElementById("nav").style.top = "-100%";
+  });
+
+  document.getElementById("hamburger").addEventListener("click", () => {
+    document.getElementById("nav").style.top = "0";
+  });
+</script>
+
+<div id="hamburger" class="hover:cursor-pointer sm:hidden">
+  <Hamburger />
+</div>
+
+<nav
+  id="nav"
+  class="sm:hidden flex fixed z-50 -top-[100%] left-0 w-full flex-col items-center overflow-y-auto text-lg bg-slate-900 p-2 divide-y-2 divide-slate-800 transition-all duration-500 ease-in-out drop-shadow-2xl"
+>
+  <div id="close" class="cursor-pointer mt-8 mb-8 mr-1 self-end">
+    <Cross />
+  </div>
+  <a href="/" class="min-w-full text-center px-3 py-4 active:bg-slate-800 hover:no-underline no-underline">🏠 Home</a>
+  <a href="/blog" class="min-w-full text-center px-3 py-4 active:bg-slate-800 hover:no-underline no-underline"
+    >✍ Blog</a
+  >
+  <a href="/about" class="min-w-full text-center px-3 py-4 active:bg-slate-800 hover:no-underline no-underline"
+    >🤵 About</a
+  >
+</nav>
