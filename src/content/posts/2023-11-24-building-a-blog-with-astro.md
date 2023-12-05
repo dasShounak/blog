@@ -2,7 +2,7 @@
 title: 'Building a Blog with Astro'
 publishDate: 2023-11-23
 description: 'How to make your own blog website from scratch using Astro.'
-tags: ["astro", "webdev", "blogging"]
+tags: ["astro", "webdev"]
 ---
 
 Static sites are cool. You don't have to worry about servers, security, maintenance, etc. This is why I like using static site generators like Hugo. I have used Hugo for quite some time now. Its fast and reliable, but I don't like the Go-like templating structure.
