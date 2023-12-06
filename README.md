@@ -1,6 +1,6 @@
 ## Todo
 * [x] CSS
-* [ ] Tag pages
-* [ ] Tag index page
+* [x] Tag pages
+* [x] Tag index page
 * [ ] CMS Integration
 * [ ] Sidebar on blog post page
