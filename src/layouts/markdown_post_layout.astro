@@ -15,7 +15,7 @@ const allTags = await frontmatter.tags;
     <h2 class="opacity-80 font-normal my-0 mb-4">{frontmatter.description}</h2>
     <h3 class="text-slate-500 font-normal">{frontmatter.publishDate.toUTCString().slice(4, 16)}</h3>
     <div class="flex flex-row justify-start space-x-3 mt-6">
-      {allTags.map((tag) => <Tag>{tag}</Tag>)}
+      {allTags.map((tag) => <Tag url={tag}>{tag}</Tag>)}
     </div>
     <hr class="mt-6 mb-14" />
     <slot />

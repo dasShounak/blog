@@ -1,0 +1,15 @@
+---
+import Tag from "../components/tag.astro";
+import { getCollection } from "astro:content";
+const allBlogPosts = await getCollection("posts");
+const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
+const { classList } = Astro.props;
+---
+
+{
+  tags.map((tag) => (
+    <li class={classList}>
+      <Tag url={tag}>{tag}</Tag>
+    </li>
+  ))
+}
