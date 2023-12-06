@@ -1,16 +1,17 @@
 ---
+import { getCollection } from "astro:content";
 import Base from "../../layouts/base.astro";
 import PageTitle from "../../components/page_title.astro";
-import BlogPost from "../../components/blog_post.astro";
 import BlogGrid from "../../components/blog_grid.astro";
+import BlogPost from "../../components/blog_post.astro";
 
 export async function getStaticPaths() {
-  const allPosts = await Astro.glob("../../content/posts/*.md");
+  const allBlogPosts = await getCollection("posts");
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+  const uniqueTags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+    const filteredPosts = allBlogPosts.filter((post) => post.data.tags.includes(tag));
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -22,13 +23,20 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Base title={tag}>
-  <PageTitle title={`Tag: ${tag}`} />
-  <p>Posts tagged with {tag}</p>
-  <!-- List all blogs -->
-  <div class="grow">
-    <BlogGrid>
-      {posts.map((post) => <BlogPost url={post.slug} title={post.frontmatter.title} />)}
-    </BlogGrid>
-  </div>
+<Base title={`Tag: ${tag}`}>
+  <PageTitle title={`Articles on #${tag}`} />
+  <BlogGrid>
+    {
+      posts
+        .reverse()
+        .map((post) => (
+          <BlogPost
+            url={post.slug}
+            title={post.data.title}
+            date={post.data.publishDate.toUTCString().slice(4, 16)}
+            description={post.data.description}
+          />
+        ))
+    }
+  </BlogGrid>
 </Base>
