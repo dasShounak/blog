@@ -11,7 +11,6 @@ const allBlogPosts = await getCollection("posts");
 const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 ---
 
-<!-- TODO: Add "Shounak Das | " before page title -->
 <Base title={pageTitle}>
   <PageTitle title={pageTitle} />
   <!-- List all blogs -->
