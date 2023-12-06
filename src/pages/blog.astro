@@ -3,25 +3,34 @@ import Base from "../layouts/base.astro";
 import PageTitle from "../components/page_title.astro";
 import BlogPost from "../components/blog_post.astro";
 import BlogGrid from "../components/blog_grid.astro";
+import Tag from "../components/tag.astro";
+import TagList from "../components/tag_list.astro";
 import { getCollection } from "astro:content";
 const pageTitle = "Blog";
 const allBlogPosts = await getCollection("posts");
+const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 ---
 
+<!-- TODO: Add "Shounak Das | " before page title -->
 <Base title={pageTitle}>
   <PageTitle title={pageTitle} />
   <!-- List all blogs -->
+  <ul class="flex flex-wrap mb-5 sm:-mt-10">
+    <TagList classList="mb-5 mx-1" />
+  </ul>
   <div class="grow">
     <BlogGrid>
       {
-        allBlogPosts.reverse().map((post) => (
-          <BlogPost
-            url={post.slug}
-            title={post.data.title}
-            date={post.data.publishDate.toUTCString().slice(4, 16)}
-            description={post.data.description}
-          />
-        ))
+        allBlogPosts
+          .reverse()
+          .map((post) => (
+            <BlogPost
+              url={post.slug}
+              title={post.data.title}
+              date={post.data.publishDate.toUTCString().slice(4, 16)}
+              description={post.data.description}
+            />
+          ))
       }
     </BlogGrid>
   </div>
