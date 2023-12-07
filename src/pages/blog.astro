@@ -6,7 +6,7 @@ import BlogGrid from "../components/blog_grid.astro";
 import TagList from "../components/tag_list.astro";
 import { getCollection } from "astro:content";
 
-const pageTitle = "Blog";
+const pageTitle = "ls /blog";
 const allBlogPosts = await getCollection("posts");
 const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 ---
