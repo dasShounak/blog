@@ -4,11 +4,11 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		fontFamily: {
-			display: ["Syne", ...defaultTheme.fontFamily.sans],
+			display: ["'Syne Variable'", ...defaultTheme.fontFamily.sans],
 		},
 		extend: {
 			fontFamily: {
-				sans: ["Inter", ...defaultTheme.fontFamily.sans],
+				sans: ["'Inter Variable'", ...defaultTheme.fontFamily.sans],
 				mono: ["'Space Mono'", ...defaultTheme.fontFamily.mono],
 			}
 		},
