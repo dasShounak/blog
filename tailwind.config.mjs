@@ -5,7 +5,10 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				mono: ["'Space Mono'", ...defaultTheme.fontFamily.mono]
+				sans: ["Inter", ...defaultTheme.fontFamily.sans],
+				mono: ["'Space Mono'", ...defaultTheme.fontFamily.mono],
+				display: ["Syne", ...defaultTheme.fontFamily.display],
+			
 			}
 		},
 	},
