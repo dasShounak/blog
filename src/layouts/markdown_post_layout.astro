@@ -1,6 +1,7 @@
 ---
 import Base from "./base.astro";
 import Tag from "../components/tag.astro";
+import "../styles/base.css";
 import "../styles/links.css";
 const { frontmatter } = Astro.props;
 const allTags = await frontmatter.tags;
