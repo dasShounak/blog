@@ -1,8 +1,15 @@
 ---
 import Navigation from "../components/navigation.astro";
+import TerminalIcon from "../components/terminal.astro";
 ---
 
 <header class="flex flex-row justify-between items-center mt-4 mb-10">
-  <h1 id="site-name" class="font-bold text-3xl"><a href="/">Shounak Das</a></h1>
+  <h1 id="site-name" class="font-bold text-3xl">
+    <a href="/" class="flex items-center">
+      <div class="mr-2">
+        <TerminalIcon />
+      </div>
+       Shounak Das</a>
+  </h1>
   <Navigation />
 </header>
