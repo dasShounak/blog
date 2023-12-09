@@ -97,14 +97,14 @@ The `<slot />` element is a placeholder. When we import the layout in another fi
 
 ---
 import Base from "./base.astro";
-const pageTitle = "Home";
+const pageHeader = "Home";
 ---
 
-<Base title = {pageTitle}>
+<Base title = {pageHeader}>
 <!-- any cool stuff here will replace <slot /> -->
 </Base>
 ```
-As you can see, I created a constant `pageTitle` and passed the name of the page in the frontmatter. Then I assigned the value of this constant to the `title` prop of `base.astro`.  With the base layout, I created two more pages - `blog.astro` and `about.astro`. Nothing much in the about page, just a small paragraph and a nice header. Whereas in the blog page, I did something interesting. As we saw earlier, we can create content dynamically using JavaScript, which renders into static HTML in the client. 
+As you can see, I created a constant `pageHeader` and passed the name of the page in the frontmatter. Then I assigned the value of this constant to the `title` prop of `base.astro`.  With the base layout, I created two more pages - `blog.astro` and `about.astro`. Nothing much in the about page, just a small paragraph and a nice header. Whereas in the blog page, I did something interesting. As we saw earlier, we can create content dynamically using JavaScript, which renders into static HTML in the client. 
 
 I want to list all the blog posts (which reside in `src/pages/posts` directory as plain markdown files). We can achieve this by using the `Astro.glob()` function. It allows you to import multiple files at once. It takes the relative glob pattern (path to the folder and the regex to match the filenames) to the folder where all the files are stored, here it should be `./posts/*.md*`.  We can then create a `map` of all pages and iterate through it to create a list.
 
@@ -113,12 +113,12 @@ I want to list all the blog posts (which reside in `src/pages/posts` directory a
 
 ---
 import Base from "../layouts/base.astro";
-const pageTitle = "Blog";
+const pageHeader = "Blog";
 const allPosts = await Astro.glob("./posts/*.md");
 ---
 
 <Base title={pageTitle}>
-  <h2>{pageTitle}</h2>
+  <h2>{pageHeader}</h2>
   <!-- List all blogs -->
   <ul>
     {
@@ -258,12 +258,12 @@ On the Blog page (`src/pages/blog.astro/`), we need to replace `Astro.glob()` wi
 ---
 import Base from "../layouts/base.astro";
 import { getCollection } from "astro:content";
-const pageTitle = "Blog";
+const pageHeader = "Blog";
 const allBlogPosts = await getCollection("posts");
 ---
 
 <Base title={pageTitle}>
-  <h2>{pageTitle}</h2>
+  <h2>{pageHeader}</h2>
   <!-- List all blogs -->
   <ul>
     {

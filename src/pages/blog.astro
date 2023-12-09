@@ -6,13 +6,14 @@ import BlogGrid from "../components/blog_grid.astro";
 import TagList from "../components/tag_list.astro";
 import { getCollection } from "astro:content";
 
-const pageTitle = "ls /blog";
+const pageHeader = "ls /blog";
+const pageTitle = "Blog";
 const allBlogPosts = await getCollection("posts");
 const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 ---
 
 <Base title={pageTitle}>
-  <PageTitle title={pageTitle} />
+  <PageTitle title={pageHeader} />
   <!-- List all blogs -->
   <ul class="flex flex-wrap mb-5 sm:-mt-10">
     <TagList classList="mb-5 mx-1" />

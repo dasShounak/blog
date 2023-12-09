@@ -4,11 +4,12 @@ import PageTitle from "../../components/page_title.astro";
 import Tag from "../../components/tag.astro";
 import TagList from "../../components/tag_list.astro";
 
-const title = "cat tags";
+const pageHeader = "cat tags";
+const pageTitle = "All Tags";
 ---
 
-<Base title={title}>
-  <PageTitle title={title} />
+<Base title={pageTitle}>
+  <PageTitle title={pageHeader} />
   <ul class="flex flex-col items-center scale-125 font-semibold">
     <TagList classList="mb-5" />
   </ul>

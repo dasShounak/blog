@@ -23,7 +23,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Base title={`Tag: ${tag}`}>
+<Base title={`Posts tagged #${tag}`}>
   <PageTitle title={`cat tags | grep '${tag}'`} />
   <BlogGrid>
     {
