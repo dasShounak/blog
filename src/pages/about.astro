@@ -3,11 +3,12 @@ import Base from "../layouts/base.astro";
 import PageTitle from "../components/page_title.astro";
 import { Image } from "astro:assets";
 import aboutme from "../../public/images/aboutme.jpg";
-const pageTitle = "whoami";
+const pageHeader = "whoami";
+const pageTitle = "About";
 ---
 
 <Base title={pageTitle}>
-  <PageTitle title={pageTitle} />
+  <PageTitle title={pageHeader} />
   <!-- <Image src={aboutme} alt="Photo of me posing for the camera" /> -->
   <p class="text-xl leading-loose px-3">
     Technology has the power to transform our lives. It has opened up new opportunities, connecting us to people from
