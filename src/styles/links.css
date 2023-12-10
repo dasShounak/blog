@@ -7,11 +7,6 @@
     @apply underline decoration-transparent transition-colors duration-300 hover:text-teal-300 hover:decoration-current !important;
   }
 
-  a:hover {
-    @apply text-teal-300 transition-all duration-300;
-    text-decoration-color: currentColor;
-  }
-
   nav a {
     padding-left: 20px;
   }
