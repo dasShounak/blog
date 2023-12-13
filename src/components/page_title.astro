@@ -1,8 +1,28 @@
 ---
-const {title, mobileTitle} = Astro.props;
+const { title, mobileTitle } = Astro.props;
 ---
 
 <hr class="mb-6 opacity-30 hidden sm:block" />
-<h2 class="hidden sm:block font-mono font-semibold text-4xl text-left mb-10 mt-5 sm:my-0"><span class="text-teal-300">$</span> {title}</h2>
-<h2 class="sm:hidden font-mono font-semibold text-3xl text-left mb-10 mt-5 sm:my-0"><span class="text-teal-300 mr-2">#</span>{mobileTitle}</h2>
+{
+  mobileTitle && (
+    <div>
+      <h2 class="hidden sm:block font-mono font-semibold text-4xl text-left mb-10 mt-5 sm:my-0">
+        <span class="text-teal-300">$</span> {title}
+      </h2>
+      <h2 class="sm:hidden font-mono font-semibold text-3xl text-left mb-10 mt-5 sm:my-0">
+        <span class="text-teal-300 -mr-2">#</span>
+        {mobileTitle}
+      </h2>
+    </diviv>
+  )
+}
+{
+  !mobileTitle && (
+    <div>
+      <h2 class="font-mono font-semibold text-4xl text-left mb-10 mt-5 sm:my-0">
+        <span class="text-teal-300">$</span> {title}
+      </h2>
+    </div>
+  )
+}
 <hr class="mb-10 sm:mb-20 mt-6 opacity-30 hidden sm:block" />
