@@ -3,7 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-    h1,h2 {
+    html {
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    ::selection {
+        @apply bg-teal-400 text-slate-900;
+    }
+
+    h1,
+    h2 {
         @apply font-display;
     }
 }

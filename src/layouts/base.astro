@@ -2,7 +2,7 @@
 import Header from "../layouts/header.astro";
 import Footer from "../layouts/footer.astro";
 import "../styles/base.css";
-import "../styles/links.css"
+import "../styles/links.css";
 import "@fontsource/space-mono";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/syne";
@@ -15,6 +15,9 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{`Shounak Das :: ${title}`}</title>
