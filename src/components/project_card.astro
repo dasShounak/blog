@@ -1,21 +1,14 @@
 ---
-const { title, description, url } = Astro.props;
+const { title, description, url, emoji } = Astro.props;
 ---
 
 <div id="project-card" class="mb-4 p-4 bg-slate-900 rounded-lg flex flex-col break-inside-avoid">
   <div id="project-title">
-    <h2 class="text-xl text-teal-400 font-semibold">{title}</h2>
+    <h2 class="text-xl text-teal-400 font-semibold">
+      <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+    </h2>
   </div>
-  <div id="project-description">
+  <div id="project-description" class="text-slate-400">
     <p>{description}</p>
-  </div>
-  <div id="project-button" class="pt-5">
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <button
-        class="text-slate-900 hover:text-slate-900 bg-teal-400 shadow-lg shadow-teal-400/30 hover:shadow-teal-400/50 rounded px-3 py-1 uppercase font-bold text-sm transition"
-      >
-        Check it out 🚀
-      </button>
-    </a>
   </div>
 </div>
