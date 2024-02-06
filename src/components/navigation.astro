@@ -3,12 +3,12 @@ import MobileNav from "./mobile_navigation.astro";
 import "../styles/links.css";
 ---
 
-<nav class="hidden sm:block">
-  <ul class="flex justify-center font-display font-semibold text-lg">
-    <li class="px-3"><span>🏠</span><a href="/">Home</a></li>
-    <li class="px-3"><span>✍</span><a href="/blog">Blog</a></li>
-    <li class="px-3"><span>🏗</span><a href="/projects">Projects</a></li>
-    <li class="px-3"><span>🤵</span><a href="/about">About</a></li>
+<nav class="hidden sm:block" style="--fa-li-width: 1.5em;">
+  <ul class="fa-ul flex justify-center font-display font-semibold text-lg space-x-14">
+    <li><span class="fa-li"><i class="fa-solid fa-sm fa-house"></i></span><a href="/">Home</a></li>
+    <li><span class="fa-li"><i class="fa-solid fa-sm fa-pen"></i></span><a href="/blog">Blog</a></li>
+    <li><span class="fa-li"><i class="fa-solid fa-sm fa-fire"></i></span><a href="/projects">Projects</a></li>
+    <li><span class="fa-li"><i class="fa-solid fa-sm fa-user"></i></span><a href="/about">About</a></li>
   </ul>
 </nav>
 
