@@ -16,7 +16,7 @@ const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
   <PageTitle title={pageHeader} />
   <!-- List all blogs -->
   <ul class="flex flex-wrap mb-5 sm:-mt-10">
-    <TagList classList="mb-5 mx-1" />
+    <TagList classList="mb-5 mx-1 -mt-4 sm:mt-2 sm:mb-8" />
   </ul>
   <div class="grow">
     <BlogGrid>
