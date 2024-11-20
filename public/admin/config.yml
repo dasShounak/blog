@@ -1,14 +1,23 @@
+local_backend: true
+
 backend:
   name: git-gateway
   branch: main
-  local_backend: true
+  squash_merges: true
 
-publish_mode: "simple"
+site_url: https://shounakdas.netlify.app/
+
+publish_mode: editorial_workflow
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    label_singular: "Post" # Used in the UI
     folder: "src/content/posts" # The path to the folder where the documents are stored
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in frontmatter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
@@ -18,5 +27,3 @@ collections:
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
