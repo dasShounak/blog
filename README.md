@@ -4,5 +4,4 @@
 ![GitHub issues](https://img.shields.io/github/issues/dasShounak/blog?logo=github)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fshounakdas.me%2F)
 
-
 Visit site: [Click](https://shounakdas.netlify.app/)
