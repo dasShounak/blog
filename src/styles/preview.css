@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap");
+
+.frame-content {
+    font-family: "Space Grotesk", sans-serif;
+    padding: 1em 3em;
+    background-color: #020617;
+    color: #cbd5e1;
+}
+
+.title {
+    font-family: "Syne", sans-serif;
+    font-size: 2.25rem;
+    color: #fff;
+}
+
+.description {
+    font-family: "Syne", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.25em;
+}
+
+.text {
+    line-height: 1.5em;
+    margin-top: 2.5rem;
+    font-size: 20px;
+}
+
+.text pre {
+    font-family: "Space Mono", sans-serif;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 0;
+    background-color: #24292e;
+    overflow-x: scroll;
+}
