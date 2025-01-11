@@ -1,20 +1,22 @@
+// Import glob loader
+import { glob } from "astro/loaders";
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
 
-// 2. Define a `type` and `schema` for each collection
-const blogCollection = defineCollection({
-    type: 'content',
+// 2. Define a `loader` and `schema` for each collection
+const blog = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.md', base: "./src/posts" }),
     schema: z.object({
-        isDraft: z.boolean(),
+        //isDraft: z.boolean(),
         title: z.string(),
         description: z.string(),
-        sortOrder: z.number(),
-        image: z.object({
-            url: z.string(),
-            alt: z.string(),
-        }),
-        author: z.string().default('Anonymous'),
-        language: z.enum(['en', 'es']),
+        //sortOrder: z.number(),
+        //image: z.object({
+        //    url: z.string(),
+        //    alt: z.string(),
+        //}),
+        //author: z.string().default('Anonymous'),
+        //language: z.enum(['en', 'es']),
         tags: z.array(z.string()),
         // An optional frontmatter property. Very common!
         // footnote: z.string().optional(),
@@ -25,11 +27,11 @@ const blogCollection = defineCollection({
         // Advanced: Validate that the string is also an email
         // authorContact: z.string().email(),
         // Advanced: Validate that the string is also a URL
-        canonicalURL: z.string().url(),
+        //canonicalURL: z.string().url(),
     })
 })
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-    'blog': blogCollection,
+    blog,
 };

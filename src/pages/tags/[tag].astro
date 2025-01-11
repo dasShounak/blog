@@ -6,7 +6,7 @@ import BlogGrid from "../../components/blog_grid.astro";
 import BlogPost from "../../components/blog_post.astro";
 
 export async function getStaticPaths() {
-  const allBlogPosts = await getCollection("posts");
+  const allBlogPosts = await getCollection("blog");
 
   const uniqueTags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 
@@ -31,7 +31,7 @@ const { posts } = Astro.props;
         .reverse()
         .map((post) => (
           <BlogPost
-            url={post.slug}
+          url={post.id}
             title={post.data.title}
             date={post.data.publishDate.toUTCString().slice(4, 16)}
             description={post.data.description}

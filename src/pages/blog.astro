@@ -8,8 +8,8 @@ import { getCollection } from "astro:content";
 
 const pageHeader = "ls /blog";
 const pageTitle = "Blog";
-const allBlogPosts = await getCollection("posts");
-const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
+const allBlogPosts = await getCollection("blog");
+//const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 ---
 
 <Base title={pageTitle}>
@@ -25,7 +25,7 @@ const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
           .reverse()
           .map((post) => (
             <BlogPost
-              url={post.slug}
+            url={post.id}
               title={post.data.title}
               date={post.data.publishDate.toUTCString().slice(4, 16)}
               description={post.data.description}
