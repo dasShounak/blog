@@ -1,5 +1,5 @@
 // Import glob loader
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
 
@@ -15,8 +15,9 @@ const blog = defineCollection({
 });
 
 const projects = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.md', base: "./src/collections/projects" }),
+    loader: file("src/collections/projects.json"),
     schema: z.object({
+        id: z.number().int(),
         title: z.string(),
         description: z.string(),
         url: z.string().url().optional(),

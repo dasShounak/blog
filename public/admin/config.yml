@@ -1,8 +1,8 @@
 local_backend: true
 
 backend:
-  #name: git-gateway
-  name: test-repo
+  name: git-gateway
+  #name: test-repo
   branch: main
   squash_merges: true
 
@@ -27,14 +27,23 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "projects"
-    label: "Projects"
-    label_singular: "Project"
-    folder: "src/collections/projects"
-    slug: "{{slug}}"
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Project URL", name: "url", widget: "string" }
+  - name: "pages"
+    label: "Pages"
+    editor:
+      preview: false
+    files:
+      - label: "Projects page"
+        name: "projects"
+        file: "src/collections/projects.json"
+        fields:
+        - label: "Projects"
+          name: "projects"
+          widget: list
+          summary: "Project {{fields.id}} - {{fields.title}}"
+          allow_add: true
+          fields:
+            - { label: "ID", name: "id", widget: "number", value_type: "int" }
+            - { label: "Title", name: "title", widget: "string" }
+            - { label: "Description", name: "description", widget: "string" }
+            - { label: "Project URL", name: "url", widget: "string", required: false }
 
