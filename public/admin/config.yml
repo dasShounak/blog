@@ -2,7 +2,7 @@ local_backend: true
 
 backend:
   name: git-gateway
-  # name: test-repo
+  #name: test-repo
   branch: main
   squash_merges: true
 
@@ -13,10 +13,10 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
     label_singular: "Post" # Used in the UI
-    folder: "src/content/posts" # The path to the folder where the documents are stored
+    folder: "src/collections/posts" # The path to the folder where the documents are stored
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     preview_path: "posts/{{slug}}"
     create: true # Allow users to create new documents in this collection
@@ -27,4 +27,23 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "pages"
+    label: "Pages"
+    editor:
+      preview: false
+    files:
+      - label: "Projects page"
+        name: "projects"
+        file: "src/collections/projects.json"
+        fields:
+        - label: "Projects"
+          name: "projects"
+          widget: list
+          summary: "Project {{fields.id}} - {{fields.title}}"
+          allow_add: true
+          fields:
+            - { label: "ID", name: "id", widget: "number", value_type: "int" }
+            - { label: "Title", name: "title", widget: "string" }
+            - { label: "Description", name: "description", widget: "string" }
+            - { label: "Project URL", name: "url", widget: "string", required: false }
 

@@ -2,6 +2,8 @@
 import Base from "../layouts/base.astro";
 import PageTitle from "../components/page_title.astro";
 import ProjectCard from "../components/project_card.astro";
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
 const pageHeader = "ls /projects";
 const pageTitle = "Projects";
 ---
@@ -9,31 +11,13 @@ const pageTitle = "Projects";
 <Base title={pageTitle}>
   <PageTitle title={pageHeader} />
   <div id="projects-grid" class="columns-1 sm:columns-2 gap-4">
-    <ProjectCard
-      title="coffeebean"
-      description="Writing a compiler in Rust."
-      url="https://github.com/dasShounak/coffeebean"
-    />
-    <ProjectCard
-      title="bettercp"
-      description="A command line tool written in Rust as an alternative for `cp` command"
-      url="https://github.com/dasShounak/bettercp"
-    />
-    <ProjectCard
-      title="ClassyCSS"
-      description="Free, open source CSS framework."
-      url="https://github.com/dasShounak/ClassyCSS"
-    />
-    <ProjectCard
-      emoji="💻"
-      title="Cordppuccin"
-      description="BetterDiscord theme based on the popular Catppuccin colorscheme, forked from Dyzean/Simplify"
-      url="https://github.com/dasShounak/Cordppuccin"
-    />
-    <ProjectCard
-      title="noc"
-      description="A visually pleasing dark theme for VSCode."
-      url="https://github.com/dasShounak/noc"
-    />
+      {
+          allProjects.map((project) => (
+          <ProjectCard 
+              title={project.data.title} 
+              description={project.data.description} 
+              url={project.data.url} />
+          ))
+      }
   </div>
 </Base>
