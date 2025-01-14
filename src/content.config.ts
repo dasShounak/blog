@@ -15,7 +15,7 @@ const blog = defineCollection({
 });
 
 const projects = defineCollection({
-    loader: file("src/collections/projects.json"),
+    loader: file("src/collections/pages/projects.json"),
     schema: z.object({
         id: z.number().int(),
         title: z.string(),

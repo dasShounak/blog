@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "coffeebean",
+        "description": "Writing a compiler in Rust.",
+        "url": "https://github.com/dasShounak/coffeebean"
+    },
+    {
+        "id": 2,
+        "title": "Cordppuccin",
+        "description": "BetterDiscord theme based on the popular Catppuccin colorscheme, forked from Dyzean/Simplify",
+        "url": "https://github.com/dasShounak/Cordppuccin"
+    }
+]
