@@ -2,6 +2,7 @@
 import { glob, file } from "astro/loaders";
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
+import { parse as parseToml } from "toml";
 
 // 2. Define a `loader` and `schema` for each collection
 const blog = defineCollection({
@@ -15,7 +16,7 @@ const blog = defineCollection({
 });
 
 const projects = defineCollection({
-    loader: file("src/collections/pages/projects.json"),
+    loader: file("src/collections/projects.toml", { parser: (text) => parseToml(text).projects }),
     schema: z.object({
         id: z.number().int(),
         title: z.string(),

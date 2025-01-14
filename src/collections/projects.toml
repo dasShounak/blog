@@ -1,0 +1,24 @@
+[[projects]]
+id = 1
+title = "coffeebean"
+description = "Writing a compiler in Rust."
+url = "https://github.com/dasShounak/coffeebean"
+
+[[projects]]
+id = 2
+title = "Cordppuccin"
+description = "BetterDiscord theme based on the popular Catppuccin colorscheme forked from Dyzean/Simplify"
+url = "https://github.com/dasShounak/Cordppuccin"
+
+[[projects]]
+id = 3
+title = "bettercp"
+description = "A command line tool written in Rust as an alternative for `cp` command"
+url = "https://github.com/dasShounak/bettercp"
+
+[[projects]]
+id = 4
+title = "noc"
+description = "A visually pleasing dark theme for VSCode." 
+url = "https://github.com/dasShounak/noc"
+
