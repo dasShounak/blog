@@ -6,6 +6,7 @@ backend:
   branch: main
   squash_merges: true
 
+
 site_url: https://shounakdas.netlify.app/
 
 publish_mode: editorial_workflow
