@@ -14,8 +14,8 @@ const allBlogPosts = await getCollection("blog");
 <Base title={pageTitle}>
   <PageTitle title={pageHeader} />
   <!-- List all blogs -->
-  <ul class="flex flex-wrap mb-5 sm:-mt-10">
-    <TagList classList="mb-5 mx-1 -mt-4 sm:mt-2 sm:mb-8" />
+  <ul class="flex flex-wrap mb-10 gap-x-2 gap-y-5 sm:-mt-10">
+    <TagList classList="" />
   </ul>
   <div class="grow px-2">
     <BlogList>
