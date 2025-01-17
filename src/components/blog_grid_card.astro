@@ -1,4 +1,5 @@
 ---
+import MobileHorizontalRule from "./mobile_horizontal_rule.astro";
 const { title, url, date, description } = Astro.props;
 const limitDescriptionLength = false;
 const descriptionLength = 50;
@@ -16,6 +17,6 @@ const truncDesription = (desc) => {
     <h2 class="text-2xl sm:text-xl font-semibold mb-1"><a href={`/blog/${url}`}>{title}</a></h2>
     <p class="text-slate-500 mb-4">{date}</p>
     <p class="opacity-80">{truncDesription(description)}</p>
-    <hr class="mt-8 opacity-20 sm:hidden">
+    <MobileHorizontalRule />
   </div>
 </div>
