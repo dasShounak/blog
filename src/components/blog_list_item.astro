@@ -1,0 +1,18 @@
+---
+import Tag from "../components/tag.astro";
+const { title, url, date, tags } = Astro.props;
+---
+
+<li>
+        <div class="flex max-w-full items-center">
+            <div id="post-title" class="font-display text-lg"><a href={`/blog/${url}`}>{title}</a></div>
+            <div class="ml-auto flex items-center">
+                <div id="taglist" class="flex space-x-2 pr-4 scale-90">
+                    {
+                        tags.map((tag) => ( <Tag url={tag}>{tag}</Tag> ))
+                    }
+                </div>
+                <div id="post-publish-date" class="ml-auto text-sm">{date}</div>
+            </div>
+        </div>
+</li>

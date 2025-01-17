@@ -1,15 +1,14 @@
 ---
 import Base from "../layouts/base.astro";
 import PageTitle from "../components/page_title.astro";
-import BlogPost from "../components/blog_post.astro";
-import BlogGrid from "../components/blog_grid.astro";
+import BlogListItem from "../components/blog_list_item.astro";
+import BlogList from "../components/blog_list.astro";
 import TagList from "../components/tag_list.astro";
 import { getCollection } from "astro:content";
 
 const pageHeader = "ls /blog";
 const pageTitle = "Blog";
 const allBlogPosts = await getCollection("blog");
-//const tags = [...new Set(allBlogPosts.map((post) => post.data.tags).flat())];
 ---
 
 <Base title={pageTitle}>
@@ -19,19 +18,19 @@ const allBlogPosts = await getCollection("blog");
     <TagList classList="mb-5 mx-1 -mt-4 sm:mt-2 sm:mb-8" />
   </ul>
   <div class="grow">
-    <BlogGrid>
+    <BlogList>
       {
         allBlogPosts
           .reverse()
           .map((post) => (
-            <BlogPost
+            <BlogListItem
             url={post.id}
               title={post.data.title}
               date={post.data.publishDate.toUTCString().slice(4, 16)}
-              description={post.data.description}
+              tags={post.data.tags}
             />
           ))
       }
-    </BlogGrid>
+    </BlogList>
   </div>
 </Base>

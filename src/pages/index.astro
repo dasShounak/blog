@@ -3,7 +3,7 @@ import Base from "../layouts/base.astro";
 import { Image } from "astro:assets";
 import avatar from "../../public/images/avatar.png";
 import BlogGrid from "../components/blog_grid.astro";
-import BlogPost from "../components/blog_post.astro";
+import BlogGridCard from "../components/blog_grid_card.astro";
 import { getCollection } from "astro:content";
 const pageTitle = "Home";
 const allBlogPosts = await getCollection("blog");
@@ -40,7 +40,7 @@ console.log(allBlogPosts);
         .reverse()
         .slice(0,3)
         .map((post) => (
-        <BlogPost
+        <BlogGridCard
         url={post.id}
         title={post.data.title}
         date={post.data.publishDate.toUTCString().slice(4, 16)}
