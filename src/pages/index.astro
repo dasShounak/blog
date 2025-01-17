@@ -7,7 +7,6 @@ import BlogGridCard from "../components/blog_grid_card.astro";
 import { getCollection } from "astro:content";
 const pageTitle = "Home";
 const allBlogPosts = await getCollection("blog");
-console.log(allBlogPosts);
 ---
 
 <Base title={pageTitle}>
@@ -29,7 +28,7 @@ console.log(allBlogPosts);
         <h2 class="font-display font-semibold text-4xl text-left mt-5 mb-4">
             Recent Posts
         </h2>
-        <h2 class="font-mono hidden sm:block text-md text-left sm:mt-5">
+        <h2 class="hidden sm:block text-md text-left sm:mt-5">
             👉 <a href="blog/">View all</a>
         </h2>
     </div>
@@ -50,8 +49,8 @@ console.log(allBlogPosts);
         }
         </BlogGrid>
     </div>
-    <div class="flex flex-col sm:hidden items-baseline justify-between px-3">
-        <h2 class="font-mono text-md text-left mb-4">
+    <div class="w-full flex sm:hidden items-baseline justify-between px-3">
+        <h2 class="text-md text-left font-semibold mb-4 px-3 py-2 grow uppercase text-center bg-slate-800 rounded-md active:bg-slate-700 transition duration-300">
             👉 <a href="blog/">View all</a>
         </h2>
     </div>
