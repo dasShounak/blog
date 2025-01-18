@@ -7,7 +7,7 @@
     @apply underline decoration-transparent transition-colors duration-300 hover:text-teal-300 hover:decoration-current !important;
   }
 
-  #site-name a {
+  #site-name a, .reset-a a {
     text-decoration: none !important;
   }
 }
