@@ -14,7 +14,7 @@ const allBlogPosts = await getCollection("blog");
 <Base title={pageTitle}>
 <div class="flex items-baseline justify-between reset-a">
     <PageTitle title={pageHeader} />
-    <div id="rss-btn">
+    <div id="rss-btn" class="cursor-pointer whitespace-nowrap">
         <input type="text" value="https://shounakdas.netlify.app/rss.xml" id="copy-text" class="hidden">
         <div class="bg-slate-800 text-slate-500 hover:text-teal-400 transition duration-300 ease-in-out rounded px-2 py-1">
             <i id="rss-icon" class="fa-sm fa-solid fa-rss"></i>
@@ -50,7 +50,7 @@ const allBlogPosts = await getCollection("blog");
     const rssBtnText = document.getElementById("rss-btn-text");
     const rssBtnIcon = document.getElementById("rss-icon");
     const copy = () => {
-        const copyText = document.getElementById("copy-text");
+        const copyText = document.getElementById("copy-text") as HTMLInputElement;
         try {
             copyText.select();
             copyText.setSelectionRange(0, 99999);
