@@ -1,0 +1,8 @@
+---
+const { fa_icon, url, title } = Astro.props;
+---
+<button id=`btn-${title}` class="transition-all duration-300 ease-in-out flex space-x-2 items-center justify-center text-xl border border-teal-400 rounded-full h-12 w-12">
+    <div id="icon" class="active:animate-ping">
+        <a href={url} target="_blank" rel="noopener noreferrer"><i class=`fa-xl ${fa_icon}`></i></a>
+    </div>
+</button>
