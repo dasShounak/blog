@@ -12,25 +12,63 @@ const allBlogPosts = await getCollection("blog");
 ---
 
 <Base title={pageTitle}>
-  <PageTitle title={pageHeader} />
-  <!-- List all blogs -->
-  <ul class="flex flex-wrap mb-10 gap-x-2 gap-y-5 sm:-mt-10">
+<div class="flex items-baseline justify-between reset-a">
+    <PageTitle title={pageHeader} />
+    <div id="rss-btn">
+        <input type="text" value="https://shounakdas.netlify.app/rss.xml" id="copy-text" class="hidden">
+        <div class="bg-slate-800 text-slate-500 hover:text-teal-400 transition duration-300 ease-in-out rounded px-2 py-1">
+            <i id="rss-icon" class="fa-sm fa-solid fa-rss"></i>
+            <h3 id="rss-btn-text" class="inline-block">RSS</h3>
+        </div>
+    </div>
+</div>
+<!-- List all blogs -->
+<ul class="flex flex-wrap mb-10 gap-x-2 gap-y-5 sm:-mt-10">
     <TagList classList="" />
-  </ul>
-  <div class="grow px-2">
+</ul>
+<div class="grow px-2">
     <BlogList>
-      {
-        allBlogPosts
-          .reverse()
-          .map((post) => (
-            <BlogListItem
-            url={post.id}
-              title={post.data.title}
-              date={post.data.publishDate.toUTCString().slice(4, 16)}
-              tags={post.data.tags}
-            />
-          ))
-      }
+    {
+    allBlogPosts
+    .reverse()
+    .map((post) => (
+    <BlogListItem
+    url={post.id}
+    title={post.data.title}
+    date={post.data.publishDate.toUTCString().slice(4, 16)}
+    tags={post.data.tags}
+    />
+    ))
+    }
     </BlogList>
-  </div>
+</div>
 </Base>
+
+<script>
+    // Script to copy RSS link to clipboard
+    const rssBtn = document.getElementById("rss-btn");
+    const rssBtnText = document.getElementById("rss-btn-text");
+    const rssBtnIcon = document.getElementById("rss-icon");
+    const copy = () => {
+        const copyText = document.getElementById("copy-text");
+        try {
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            console.log("Copied text to clipboard");
+            changeText();
+        } catch(e) {
+            console.error("Failed to copy text:\n", e);
+        }
+    };
+    const changeText = () => {
+        const currText = rssBtnText.innerHTML;
+        rssBtnText.innerHTML = "Copied!";
+
+        setTimeout(() => {
+            rssBtnText.innerHTML = currText;
+        }, 3000);
+    };
+
+    rssBtn.addEventListener("click", copy);
+</script>
