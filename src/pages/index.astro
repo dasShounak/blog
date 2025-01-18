@@ -2,22 +2,57 @@
 import Base from "../layouts/base.astro";
 import { Image } from "astro:assets";
 import avatar from "../../public/images/avatar.png";
+import BlogGrid from "../components/blog_grid.astro";
+import BlogGridCard from "../components/blog_grid_card.astro";
+import { getCollection } from "astro:content";
 const pageTitle = "Home";
+const allBlogPosts = await getCollection("blog");
 ---
 
 <Base title={pageTitle}>
-  <!-- TODO: Tags list -->
-  <!-- TODO: 10 recent posts -->
-  <div class="flex flex-col md:flex-row justify-center space-y-10 md:space-x-20 items-center h-[60vh] grow">
-    <div class="container w-52 h-auto rounded-full object-contain overflow-hidden">
-      <Image src={avatar} alt="Tom Cruise? Is that you? Wait no..." class="scale-110" />
+<!-- TODO: Tags list -->
+<div class="flex flex-col md:flex-row justify-start space-y-10 md:space-y-0 md:space-x-10 items-center h-[60vh] mt-8 px-3 md:px-0">
+    <div class="container w-52 h-52 rounded-full object-contain overflow-hidden border-2 border-teal-500 grow shrink-0">
+        <Image src={avatar} alt="Tom Cruise? Is that you? Wait no..." class="scale-110" />
     </div>
-    <div>
-      <h1 class="text-4xl font-semibold mb-4">Hi! I'm Shounak</h1>
-      <ul class="text-2xl font-display">
-        <li>👉 Ethical Hacker</li>
-        <li>👉 Web Developer</li>
-      </ul>
+    <div class="grow-0 shrink basis-auto">
+        <h1 class="text-4xl font-semibold mb-4">Hi! I'm Shounak <span class="hidden sm:inline-block">👋</span></h1>
+        <div class="flex flex-col space-y-4 text-justify md:text-left text-md md:text-lg leading-relaxed">
+            <p>I'm passionate about both cybersecurity and web development. Whether it is securing web applications or delving into the latest hacking techniques, I am eager to share my journey and insights.</p>
+            <p>So join me on this exciting tech adventure as we try to solve real-world problems and stay ahead in this ever-evolving field!</p>
+        </div>
     </div>
-  </div>
+</div>
+<div class="mt-20">
+    <div class="flex flex-col sm:flex-row items-baseline justify-between sm:space-x-5 px-3 md:px-0">
+        <h2 class="font-display font-semibold text-4xl text-left mt-5 mb-4">
+            Recent Posts
+        </h2>
+        <h2 class="hidden sm:block text-md text-left sm:mt-5">
+            👉 <a href="blog/">View all</a>
+        </h2>
+    </div>
+    <div class="grow">
+        <BlogGrid>
+        {
+        allBlogPosts
+        .reverse()
+        .slice(0,3)
+        .map((post) => (
+        <BlogGridCard
+        url={post.id}
+        title={post.data.title}
+        date={post.data.publishDate.toUTCString().slice(4, 16)}
+        description={post.data.description}
+        />
+        ))
+        }
+        </BlogGrid>
+    </div>
+    <div class="w-full flex sm:hidden items-baseline justify-between px-3">
+        <h2 class="text-md text-left font-semibold mb-4 px-3 py-2 grow uppercase text-center bg-slate-800 rounded-md active:bg-slate-700 transition duration-300">
+            👉 <a href="blog/">View all</a>
+        </h2>
+    </div>
+</div>
 </Base>
