@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: THM Simple CTF
+title: THM Simple CTF Writeup
 publishDate: 2023-12-02T23:51:00.000Z
 description: Walkthrough/answers of TryHackMe Simple CTF room.
 tags:
