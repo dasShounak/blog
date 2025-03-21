@@ -58,4 +58,4 @@ To crack the password of user 'Jon', extract the NTLM hash and use [CrackStation
 
 ![](/images/uploads/screenshot-2025-03-21-232544.png)
 
-***
+*84ck_783_914n37*
