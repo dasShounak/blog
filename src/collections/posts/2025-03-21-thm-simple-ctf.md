@@ -21,7 +21,7 @@ List all directories using gobuster to find the path `/simple`. On visiting the 
 
 Searching for exploits using `searchsploit` showed that there is a SQLi vulnerability on all versions <2.2.10 - CVE-2019-9053.
 
-![]()
+![](/images/uploads/screenshot-2025-03-21-235251.png)
 
 **4. To what kind of vulnerability is the application vulnerable?**
 SQLi
@@ -40,7 +40,7 @@ Run the downloaded script:
 python exploit.py -u http://TARGET_IP/simple --crack -w /usr/share/wordlists/rockyou.txt
 ```
 
-!\[[Pasted image 20231202225628.png]]
+![](/images/uploads/screenshot-2025-03-21-235257.png)
 
 **6. Where can you login with the details obtained?**
 ssh
@@ -48,10 +48,16 @@ ssh
 **7. What's the user flag?**
 As we already know, we have an open port 2222 running ssh. Using the credentials revealed in last step, we can get remote access.
 
-!\[[Pasted image 20231202225910.png]]
+
+
+![](/images/uploads/screenshot-2025-03-21-235305.png)
 
 **8. Is there any other user in the home directory? What's its name?**
 Just cd into home directory to reveal the other user.
 
 **9. What can you leverage to spawn a privileged shell?**
-!\[[1 odkadCwuBFwLqBNUgs_1cw.webp]]
+
+
+![](/images/uploads/screenshot-2025-03-21-235316.png)
+
+*84ck_783_914n37*
