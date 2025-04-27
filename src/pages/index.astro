@@ -39,7 +39,6 @@ const allBlogPosts = await getCollection("blog");
     <BlogGrid>
     {
     allBlogPosts
-    .reverse()
     .slice(0,3)
     .map((post) => (
     <BlogGridCard
