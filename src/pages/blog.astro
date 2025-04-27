@@ -23,9 +23,13 @@ const allBlogPosts = await getCollection("blog");
     </div>
 </div>
 <!-- List all blogs -->
-<ul class="flex flex-wrap mb-10 gap-x-2 gap-y-5 sm:-mt-10">
-    <TagList classList="" />
-</ul>
+<div class="-mt-10 space-y-4">
+    <p>Filter by topic:<p>
+    <ul class="flex flex-wrap mb-10 gap-x-2 gap-y-5">
+        <TagList classList="" />
+    </ul>
+</div>
+<hr class="mt-5 mb-8 border-teal-800/40">
 <div class="grow px-2">
     <BlogList>
     {

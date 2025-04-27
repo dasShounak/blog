@@ -3,19 +3,20 @@ import Base from "../layouts/base.astro";
 import PageTitle from "../components/page_title.astro";
 import page404gif from "../../public/images/uploads/404.gif";
 import gohomegif from "../../public/images/uploads/home.gif";
+import TextLink from "../components/text_link.astro";
 const pageTitle = "[ERROR404] Page not found.";
 ---
 
 <Base title={pageTitle}>
 <div class="text-red-400">
-<PageTitle title={pageTitle} />
+  <PageTitle title={pageTitle} />
 </div>
 <div class="flex max-w-sm space-x-10">
-    <img src={page404gif.src} />
-    <img src={gohomegif.src} />
+  <img src={page404gif.src} />
+  <img src={gohomegif.src} />
 </div>
-<p class="text-xl mt-10">
-<p class="text-lg text-teal-400"><a href="./">Go home</a></p>
-<i>84ck_783_914n37</i>
+<p class="mt-10">
+  <TextLink url="./">&larr; Go home</TextLink>
+  <i class="mt-2">84ck_783_914n37</i>
 </p>
 </Base>

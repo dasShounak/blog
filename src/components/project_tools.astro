@@ -1,6 +1,25 @@
 ---
 const { tool } = Astro.props;
+const borderColorMap = {
+  rust: 'border-orange-500',
+  css: 'border-blue-500',
+  cpp: 'border-indigo-500',
+  javascript: 'border-yellow-500',
+  python: 'border-blue-700',
+  html: 'border-red-500',
+};
+
+const textColorMap = {
+  rust: 'text-orange-500',
+  css: 'text-blue-500',
+  cpp: 'text-indigo-500',
+  javascript: 'text-yellow-500',
+  python: 'text-blue-700',
+  html: 'text-red-500',
+};
+
+const classlist = `px-2 text-sm border rounded-full max-w-min whitespace-nowrap ${borderColorMap[tool] || 'border-slate-500'} ${textColorMap[tool] || 'text-slate-500'}`;
 ---
-<div class="mt-5 px-2 py-1 text-sm border border-slate-500 text-slate-500 rounded-full max-w-min whitespace-nowrap">
+<div class={classlist}>
     <span>{tool}</span>
 </div>

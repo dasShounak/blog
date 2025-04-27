@@ -10,7 +10,16 @@ export default {
 			fontFamily: {
 				sans: ["'Inter Variable'", ...defaultTheme.fontFamily.sans],
 				mono: ["'Space Mono'", ...defaultTheme.fontFamily.mono],
-			}
+			},
+            animation: {
+                blink: "blink 1s ease infinite",
+            },
+            keyframes: {
+                blink: {
+                    "0%, 100%": { opacity: 0 },
+                    "50%": { opacity: 1 }
+                }
+            }
 		},
 	},
 	plugins: [

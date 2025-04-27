@@ -1,0 +1,4 @@
+---
+const { url } = Astro.props;
+---
+<p class="text-sm before:content-['['] after:content-[']'] text-teal-600"><a href={url}><slot /></a></p>

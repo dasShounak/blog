@@ -21,6 +21,7 @@ const projects = defineCollection({
         id: z.number().int(),
         title: z.string(),
         description: z.string(),
+        date: z.string(),
         url: z.string().url().optional(),
         tools: z.array(z.string()),
     })
