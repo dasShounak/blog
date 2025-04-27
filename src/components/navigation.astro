@@ -1,14 +1,24 @@
 ---
 import "../styles/links.css";
 ---
+
 <nav>
   <div class="sm:hidden">
     <ion-icon id="menu" name="menu" size="large" onclick="Menu(this)"></ion-icon>
   </div>
-  <ul id="nav-list" class="text-lg sm:flex items-center gap-8 mt-8 sm:mt-0 space-y-3 sm:space-y-0 px-4 sm:px-0 py-4 sm:py-0 absolute left-0 bg-slate-950 max-sm:border-b border-teal-700 max-sm:shadow-xl shadow-teal-800/30 w-full sm:w-auto z-10 sm:z-auto sm:static opacity-0 sm:opacity-100 top-[-400px] transition-all duration-500 ease-in">
-    <li id="item1" class="transition-all duration-300 delay-300 opacity-0 sm:opacity-100"><span class="text-teal-400 font-semibold">&gt; </span><a href="/">home</a></li>
-    <li id="item2" class="transition-all duration-300 delay-500 opacity-0 sm:opacity-100"><span class="text-teal-400 font-semibold">&gt; </span><a href="/blog">blog</a></li>
-    <li id="item3" class="transition-all duration-300 delay-700 opacity-0 sm:opacity-100"><span class="text-teal-400 font-semibold">&gt; </span><a href="/projects">projects</a></li>
+  <ul
+    id="nav-list"
+    class="text-lg sm:flex items-center gap-8 mt-8 sm:mt-0 space-y-3 sm:space-y-0 px-4 sm:px-0 py-4 sm:py-0 absolute left-0 bg-slate-950 max-sm:border-b border-teal-700 max-sm:shadow-xl shadow-teal-800/30 w-full sm:w-auto z-10 sm:z-auto sm:static sm:opacity-100 transition-all duration-300 ease-in-out opacity-0 top-[-400px]"
+  >
+    <li id="item1" class="transition-all duration-300 delay-300 opacity-0 sm:opacity-100">
+      <span class="text-teal-400 font-semibold">&gt; </span><a href="/">home</a>
+    </li>
+    <li id="item2" class="transition-all duration-300 delay-500 opacity-0 sm:opacity-100">
+      <span class="text-teal-400 font-semibold">&gt; </span><a href="/blog">blog</a>
+    </li>
+    <li id="item3" class="transition-all duration-300 delay-700 opacity-0 sm:opacity-100">
+      <span class="text-teal-400 font-semibold">&gt; </span><a href="/projects">projects</a>
+    </li>
   </ul>
 </nav>
 <script is:inline>
@@ -17,6 +27,20 @@ import "../styles/links.css";
     let item1 = document.querySelector("#item1");
     let item2 = document.querySelector("#item2");
     let item3 = document.querySelector("#item3");
-    e.name === "menu" ? (e.name = "close", list.classList.add("top-8"), list.classList.add("opacity-100"), item1.classList.add("opacity-100"), item2.classList.add("opacity-100"), item3.classList.add("opacity-100")) : (e.name = "menu", list.classList.remove("top-8"), list.classList.remove("opacity-100"), item1.classList.remove("opacity-100"), item2.classList.remove("opacity-100"), item3.classList.remove("opacity-100"));
-  }
+    e.name === "menu"
+      ? ((e.name = "close"),
+        list.classList.remove("top-[-400px]"),
+        list.classList.add("top-8"),
+        list.classList.add("opacity-100"),
+        item1.classList.add("opacity-100"),
+        item2.classList.add("opacity-100"),
+        item3.classList.add("opacity-100"))
+      : ((e.name = "menu"),
+        list.classList.remove("top-8"),
+        list.classList.add("top-[-400px]"),
+        list.classList.remove("opacity-100"),
+        item1.classList.remove("opacity-100"),
+        item2.classList.remove("opacity-100"),
+        item3.classList.remove("opacity-100"));
+  };
 </script>
