@@ -24,10 +24,12 @@ const { title } = Astro.props;
     <meta name="google-site-verification" content="bi8yjK7d95OocJBju4URgHNWzFgTNScbx3a0V10t-3g" />
     <title>{`Shounak Das :: ${title}`}</title>
     <script src="https://kit.fontawesome.com/0a41cee954.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body class="max-w-4xl h-screen flex flex-col mx-auto bg-slate-950 text-slate-300 px-3 sm:px-7 md:px-10">
     <Header />
-    <slot />
-    <Footer />
+      <slot />
+      <Footer />
   </body>
 </html>

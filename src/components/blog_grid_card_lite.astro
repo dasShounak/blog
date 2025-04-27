@@ -12,8 +12,8 @@ const truncDesription = (desc) => {
 };
 ---
 
-<div id="recent-card" class="relative border-l ml-4 mb-8 sm:m-0 sm:border border-teal-700 hover:border-teal-600 hover:bg-slate-900/60 sm:bg-slate-950 sm:rounded-lg hover:shadow-slate-900 shadow-xl sm:hover:-translate-y-0.5 transition-all duration-300">
-    <div class="sm:pt-3 py-2 sm:pb-5 px-3">
+<div class="relative border border-teal-700 hover:border-teal-600 hover:bg-slate-900/60 bg-slate-950 rounded-lg hover:shadow-slate-900 shadow-xl sm:hover:-translate-y-0.5 transition-all duration-300">
+    <div class="pt-3 pb-5 px-3">
         <h2 class="text-2xl sm:text-xl font-semibold mb-1 max-sm:text-teal-400"><a href={`/blog/${url}`}>{title}</a></h2>
         <p class="text-slate-500 mb-4">{date}</p>
         <p class="opacity-80">{truncDesription(description)}</p>

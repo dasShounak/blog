@@ -9,16 +9,20 @@ const pageTitle = "Projects";
 ---
 
 <Base title={pageTitle}>
-  <PageTitle title={pageHeader} />
-  <div id="projects-grid" class="columns-1 sm:columns-2 gap-4">
-      {
-          allProjects.map((project) => (
-          <ProjectCard 
-              title={project.data.title} 
-              description={project.data.description} 
-              url={project.data.url}
-              toolsArray={project.data.tools} />
-          ))
-      }
-  </div>
+<PageTitle title={pageHeader} />
+<p class="text-sm before:content-['['] after:content-[']'] text-teal-600 -mt-12 mb-10">
+<a href="https://github.com/dasShounak?tab=repositories" target="_blank" rel="noopener noreferrer">View all GitHub repositories &rarr;</a>
+</p>
+<div id="projects-grid" class="columns-1 sm:columns-2 gap-4">
+  {
+  allProjects.map((project) => (
+  <ProjectCard 
+  title={project.data.title} 
+  description={project.data.description} 
+  date={project.data.date}
+  url={project.data.url}
+  toolsArray={project.data.tools} />
+  ))
+  }
+</div>
 </Base>

@@ -1,6 +1,7 @@
 ---
 import Tag from "./tag.astro";
 import MobileHorizontalRule from "./mobile_horizontal_rule.astro";
+import TextLink from "./text_link.astro";
 const { title, url, date, tags } = Astro.props;
 ---
 
@@ -16,6 +17,9 @@ const { title, url, date, tags } = Astro.props;
                     }
                 </div>
                 <div id="post-publish-date" class="mr-auto mt-auto sm:mt-0 sm:ml-auto text-sm">{date}</div>
+            </div>
+            <div class="sm:hidden mt-2">
+                <TextLink url=`/blog/${url}`>Read more</TextLink>
             </div>
         <MobileHorizontalRule />
         </div>
