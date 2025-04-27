@@ -4,8 +4,12 @@ import Tag from "../components/tag.astro";
 import "../styles/base.css";
 import "../styles/links.css";
 import TextLink from "../components/text_link.astro";
+import SuggestedPosts from "../components/suggested_posts.astro";
+import { getCollection } from "astro:content";
 const { frontmatter } = Astro.props;
 const allTags = await frontmatter.tags;
+const allPosts = await getCollection("blog");
+const currentUrl = Astro.url.pathname;
 ---
 
 <Base title={frontmatter.title}>
@@ -28,4 +32,10 @@ const allTags = await frontmatter.tags;
 <div class="font-sans mt-6 ml-2 sm:ml-5 lg:ml-10">
   <TextLink url="#top">&uarr; Back to the top</TextLink>
 </div>
+<div
+  class="prose prose-slate prose-xl prose-invert prose-h2:text-2xl prose-h3:text-xl prose-headings:text-4xl max-w-none px-2 sm:px-5 lg:px-10 prose-a:text-teal-300 prose-a:no-underline hover:prose-a:underline"
+  >
+  <hr class="mt-6" />
+</div>
+<SuggestedPosts currentUrl={currentUrl} currentTags={frontmatter.tags} allPosts={allPosts} />
 </Base>

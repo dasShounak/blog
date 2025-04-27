@@ -1,0 +1,29 @@
+---
+import BlogGrid from "./blog_grid.astro";
+import BlogGridCardLite from "./blog_grid_card_lite.astro";
+
+const randomLot = (array, num) => {
+    let newArray = []
+
+    while (newArray.length < num && array.length > 0) {
+      const randomIndex = Math.floor(Math.random() * array.length)
+      newArray.push(array[randomIndex])
+      array.splice(randomIndex, 1)
+    }
+
+    return newArray
+  }
+
+const { currentUrl, currentTags, allPosts } = Astro.props;
+const suggestedPosts = randomLot(allPosts.filter(post => `/blog/${post.id}` !== currentUrl && post.data.tags.includes(currentTags[0])), 3);
+---
+{suggestedPosts.length > 0 && (
+<div class="px-2 sm:px-5 lg:px-10 mt-10">
+  <h3 class="text-2xl mb-4">Suggested posts:</h3>
+  <BlogGrid>
+  {suggestedPosts.map(post => (
+  <BlogGridCardLite url={post.id} title={post.data.title} date={post.data.publishDate.toUTCString().slice(4, 16)} description={post.data.description} />
+  ))}
+  </BlogGrid>
+</div>
+)}
