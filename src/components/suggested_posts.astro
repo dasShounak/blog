@@ -1,21 +1,9 @@
 ---
 import BlogGrid from "./blog_grid.astro";
 import BlogGridCardLite from "./blog_grid_card_lite.astro";
-
-const randomLot = (array, num) => {
-    let newArray = []
-
-    while (newArray.length < num && array.length > 0) {
-      const randomIndex = Math.floor(Math.random() * array.length)
-      newArray.push(array[randomIndex])
-      array.splice(randomIndex, 1)
-    }
-
-    return newArray
-  }
-
+import { getSuggestedPosts } from "../lib/getSuggestedPosts";
 const { currentUrl, currentTags, allPosts } = Astro.props;
-const suggestedPosts = randomLot(allPosts.filter(post => `/blog/${post.id}` !== currentUrl && post.data.tags.includes(currentTags[0])), 3);
+const suggestedPosts = getSuggestedPosts(allPosts, currentUrl, currentTags);
 ---
 {suggestedPosts.length > 0 && (
 <div class="px-2 sm:px-5 lg:px-10 mt-10">
