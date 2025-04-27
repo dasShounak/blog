@@ -2,6 +2,7 @@
 id = 1
 title = "coffeebean"
 description = "Writing a compiler in Rust."
+date = "January 2024"
 url = "https://github.com/dasShounak/coffeebean"
 tools = ["rust"]
 
@@ -9,6 +10,7 @@ tools = ["rust"]
 id = 2
 title = "bettercp"
 description = "A command line tool written in Rust as an alternative for `cp` command"
+date = "March 2023"
 url = "https://github.com/dasShounak/bettercp"
 tools = ["rust"]
 
@@ -16,6 +18,7 @@ tools = ["rust"]
 id = 3
 title = "Cordppuccin"
 description = "BetterDiscord theme based on the popular Catppuccin colorscheme forked from Dyzean/Simplify"
+date = "March 2023"
 url = "https://github.com/dasShounak/Cordppuccin"
 tools = ["css"]
 
@@ -23,6 +26,7 @@ tools = ["css"]
 id = 4
 title = "noc"
 description = "A visually pleasing dark theme for VSCode." 
+date = "August 2021"
 url = "https://github.com/dasShounak/noc"
 tools = ["json"]
 

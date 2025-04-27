@@ -3,22 +3,29 @@ import Base from "./base.astro";
 import Tag from "../components/tag.astro";
 import "../styles/base.css";
 import "../styles/links.css";
+import TextLink from "../components/text_link.astro";
 const { frontmatter } = Astro.props;
 const allTags = await frontmatter.tags;
 ---
 
 <Base title={frontmatter.title}>
-  <!-- TODO: Add sidebar -->
-  <div
-    class="mt-10 prose prose-slate prose-xl prose-invert prose-h2:text-2xl prose-h3:text-xl prose-headings:text-4xl max-w-none px-2 sm:px-5 lg:px-10 prose-a:text-teal-300 prose-a:no-underline hover:prose-a:underline"
+<!-- TODO: Add sidebar -->
+<div class="font-sans -mb-6 ml-2 sm:ml-5 lg:ml-10">
+  <TextLink url="/blog">&larr; Back to all blog posts</TextLink>
+</div>
+<div
+  class="mt-10 prose prose-slate prose-xl prose-invert prose-h2:text-2xl prose-h3:text-xl prose-headings:text-4xl max-w-none px-2 sm:px-5 lg:px-10 prose-a:text-teal-300 prose-a:no-underline hover:prose-a:underline"
   >
-    <h1 class="font-semibold my-0 mb-6">{frontmatter.title}</h1>
-    <h2 class="opacity-80 font-normal my-0 mb-4">{frontmatter.description}</h2>
-    <h3 class="text-slate-500 font-normal">{frontmatter.publishDate.toUTCString().slice(4, 16)}</h3>
-    <div class="flex flex-row justify-start space-x-3 mt-6">
-      {allTags.map((tag) => <Tag url={tag}>{tag}</Tag>)}
-    </div>
-    <hr class="mt-6 mb-14" />
-    <slot />
+  <h1 class="font-semibold my-0 mb-6">{frontmatter.title}</h1>
+  <h2 class="opacity-80 font-normal my-0 mb-4">{frontmatter.description}</h2>
+  <h3 class="text-slate-500 font-normal">{frontmatter.publishDate.toUTCString().slice(4, 16)}</h3>
+  <div class="flex flex-row justify-start space-x-3 mt-6">
+    {allTags.map((tag) => <Tag url={tag}>{tag}</Tag>)}
   </div>
+  <hr class="mt-6 mb-14" />
+  <slot />
+</div>
+<div class="font-sans mt-6 ml-2 sm:ml-5 lg:ml-10">
+  <TextLink url="#top">&uarr; Back to the top</TextLink>
+</div>
 </Base>

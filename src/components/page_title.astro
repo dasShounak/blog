@@ -6,10 +6,10 @@ const { title, mobileTitle } = Astro.props;
   mobileTitle && (
     <div class="mb-10 mt-5">
       <h2 class="hidden sm:block font-mono font-semibold text-4xl text-left mb-10 sm:mb-4 ">
-        <span class="text-teal-300">$</span> {title}
+        <span class="text-teal-300 select-none">$</span> {title}
       </h2>
       <h2 class="sm:hidden font-mono font-semibold text-3xl text-left sm:mb-10 -mt-1 sm:mt-5">
-        <span class="text-teal-300 mr-[3px]">#</span>
+        <span class="text-teal-300 mr-[3px] select-none">#</span>
         {mobileTitle}
       </h2>
     </div>
@@ -20,7 +20,7 @@ const { title, mobileTitle } = Astro.props;
   !mobileTitle && (
     <div class="mb-4">
       <h2 class="font-mono font-semibold text-4xl text-left mb-10 mt-5 sm:mb-12">
-        <span class="text-teal-300">$</span> {title}
+        <span class="text-teal-300 select-none">$</span> {title}
       </h2>
     </div>
   )

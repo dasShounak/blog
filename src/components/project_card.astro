@@ -1,26 +1,28 @@
 ---
 import ProjectTools from "./project_tools.astro";
-const { title, description, url, toolsArray } = Astro.props;
+const { title, description, date, url, toolsArray } = Astro.props;
 ---
 
-<div id="project-card" class="mb-4 p-4 bg-slate-900 rounded-lg flex flex-col break-inside-avoid">
+<div id="project-card" class="mb-4 p-4 bg-slate-950 rounded-md border border-teal-700 hover:border-teal-600 hover:bg-slate-900/60 hover:shadow-slate-900 shadow-xl sm:hover:-translate-y-0.5 transition-all duration-300 flex flex-col break-inside-avoid">
   <div id="project-title">
     <h2 class="text-xl text-teal-400 font-semibold">
-      <i class="fa-regular fa-folder-open fa-xs pr-1 -mb-[1px]">&nbsp;</i>
+      <i class="fa-regular fa-file-lines fa-xs pr-1 -mb-[1px]">&nbsp;</i>
       {title}
     </h2>
   </div>
   <div id="project-description" class="text-slate-400">
     <p>{description}</p>
   </div>
-  <div id="project-details" class="flex justify-between items-end">
-      <div id="project-tools" class="flex space-x-2">
-          {toolsArray.map((tool) => (
-          <ProjectTools tool={tool} />
-          ))}
-      </div>
-      <div id="project-url" class="text-slate-500">
-        <a href={url} target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github fa-xl"></i></a>
-      </div>
+  <div id="project-tools" class="flex gap-2 flex-wrap mt-4 mb-2">
+    {toolsArray.map((tool) => (
+    <ProjectTools tool={tool} />
+    ))}
+  </div>
+  <div id="project-url" class="text-slate-300 font-mono text-sm flex gap-1">
+    <p class="text-slate-500">{date}</p>
+    <p class="text-slate-500">&middot;</p>
+    <div class="max-lg:underline max-lg:text-teal-500">
+      <a href={url} target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github mr-1"></i>Github Repository</a>
+    </div>
   </div>
 </div>

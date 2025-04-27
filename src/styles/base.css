@@ -16,3 +16,15 @@
         @apply font-display;
     }
 }
+
+#recent-card::before {
+    content: "";
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    top: 0px;
+    left: -4px;
+    background-color: oklch(70.4% 0.14 182.503);
+    @apply sm:hidden;
+}
