@@ -6,7 +6,6 @@ description: Walk-through of TryHackMe Agent Sudo CTF room.
 tags:
   - tryhackme
   - writeup
-  - ""
 ---
 This TryHackMe CTF room has 5 tasks. The first one is just a simple note from the author of the room.
 
