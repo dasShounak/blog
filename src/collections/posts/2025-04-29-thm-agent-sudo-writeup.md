@@ -29,7 +29,7 @@ On refreshing the page, I found out that there were 25 employees and R must be o
 
 From the page, I got the username, using which I could find the password of the ftp using hydra.
 
-```
+```sh
 hydra -l USERNAME -P rockyou.txt ftp://TARGET_IP
 ```
 
@@ -41,7 +41,7 @@ Logging in to the ftp server, I found three files which I downloaded.
 
 Stegseek came in handy to find the hidden message in one of the images.
 
-```
+```sh
 stegseek <IMAGE_FILE>
 ```
 
@@ -55,13 +55,13 @@ Using binwalk, I found out that it contained a zipped file embedded in it.
 
 I extracted the zip file using the command:
 
-```
+```sh
 binwalk -e <IMAGE_FILE>
 ```
 
 The zip file was extracted, but it was encrypted. So, I converted it into a hash using zip2john and used john the ripper to crack the hash.
 
-```
+```sh
 zip2john 8722.zip > hash
 
 john hash
@@ -73,7 +73,7 @@ john hash
 
 Using these credentials, I got access through ssh. Two files were there in the home directory, one of them was the required user.txt file containing the user flag. The other was an image which I downloaded using scp:
 
-```
+```sh
 scp james@TARGET_IP:~/Alien_autospy.jpg ./
 ```
 
