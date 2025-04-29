@@ -10,6 +10,7 @@ import PageTitle from "../components/page_title.astro";
 import { getCollection } from "astro:content";
 const pageTitle = "Home";
 const allBlogPosts = await getCollection("blog");
+const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) - Date.parse(a.data.publishDate));
 ---
 
 <Base title={pageTitle}>
@@ -38,8 +39,7 @@ const allBlogPosts = await getCollection("blog");
   <div class="grow">
     <BlogGrid>
     {
-    allBlogPosts
-    .reverse()
+    sortedPosts
     .slice(0,3)
     .map((post) => (
     <BlogGridCard
