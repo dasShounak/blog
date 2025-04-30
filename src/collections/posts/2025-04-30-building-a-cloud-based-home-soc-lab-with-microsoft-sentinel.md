@@ -16,7 +16,7 @@ The first step was to create a resource group - a container that holds related r
 
 The next step was to create a virtual network within this resource group. To do so, all I had to do was choose the correct resource group (*i.e.* RG_SOCLab) from the dropdown menu. I named the virtual network "VN-SOCLab" and selected the same region as my resource group.
 
-> Throughout the process, in every step the azure subscription, resource group, and the region must be the same.
+*Note: Throughout the process, in every step the azure subscription, resource group, and the region must be the same.*
 
 ![Creating a virtual network](/images/uploads/pasted-image-20250413200341.png)
 
@@ -41,15 +41,17 @@ After creating VM, the RG-SOCLab resource group should contain the following res
 
 One of the automatically created resources of specific importance is the Network Security Group (the name should end with "-nsg"). In the network security group, I deleted the default RDP inbound rule. Then I opened the settings menu on the left pane, and in the "Inbound security rules", I created a new rule as given below:
 
-> Source: Any\
-> Source port ranges: *\
-> Destination: Any\
-> Service: Custom\
-> Destination port ranges:* \
-> Protocol: Any\
-> Action: Allow\
-> Priority: 100\
-> Name: DANGER_AllowAnyCustomAnyInbound  
+```txt
+Source: Any  
+Source port ranges: *  
+Destination: Any  
+Service: Custom  
+Destination port ranges: *  
+Protocol: Any  
+Action: Allow  
+Priority: 100  
+Name: DANGER_AllowAnyCustomAnyInbound  
+```
 
 Basically, this will open all ports on the virtual machine, offering free access to the attackers. A couple of warnings might be shown but it can be ignored as our aim is to make the machine vulnerable.
 
@@ -77,9 +79,8 @@ You won't get any results as it has just started to collect logs, but wait for 3
 
 That's almost it. Security events are getting logged, all that's left is to connect the source IP addresses to its geographical location. And then it could be used to create a visual map.
 
-> I made this SOC lab by following a YouTube video of **Josh Madakor**. Check the video and download the geolocation data spreadsheet from the description.
->
-> Link to video: https\[:]//youtu\[.]be/g5JL2RIbThM?si=oJpcQnUF8DQ30BAD
+*Note: I made this SOC lab by following a YouTube video of **Josh Madakor**. Check the video and download the geolocation data spreadsheet from the description.*  
+*Link to video: https\[:]//youtu\[.]be/g5JL2RIbThM?si=oJpcQnUF8DQ30BAD*
 
 I created a watchlist in Sentinel and uploaded the csv file. I put the name and alias of the watchlist as "geoip". Wait for a few minutes for the spreadsheet data to get uploaded. There should be around 55k watchlist items.
 
