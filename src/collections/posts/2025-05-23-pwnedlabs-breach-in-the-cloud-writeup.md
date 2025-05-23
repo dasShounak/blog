@@ -8,7 +8,6 @@ tags:
   - pwnedlabs
   - writeup
   - aws
-  - purple-team
 ---
 ## Download the zip file
 
