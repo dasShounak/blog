@@ -6,7 +6,6 @@ description: Learn how I set up a cloud-based Security Operations Center (SOC)
   lab at home using Microsoft Azure and Sentinel.
 tags:
   - azure
-  - blue-team
 ---
 I created a cloud-based SOC using Microsoft Azure and Sentinel. SOC stands for Security Operations Center, generally referred to the team responsible for monitoring, detecting and responding to cybersecurity threats. There are different tools that are used by the SOC like SIEM, EDR and SOAR.
 
@@ -79,7 +78,7 @@ You won't get any results as it has just started to collect logs, but wait for 3
 
 That's almost it. Security events are getting logged, all that's left is to connect the source IP addresses to its geographical location. And then it could be used to create a visual map.
 
-*Note: I made this SOC lab by following a YouTube video of **Josh Madakor**. Check the video and download the geolocation data spreadsheet from the description.*  
+*Note: I made this SOC lab by following a YouTube video of **Josh Madakor**. Check the video and download the geolocation data spreadsheet from the description.*\
 *Link to video: https\[:]//youtu\[.]be/g5JL2RIbThM?si=oJpcQnUF8DQ30BAD*
 
 I created a watchlist in Sentinel and uploaded the csv file. I put the name and alias of the watchlist as "geoip". Wait for a few minutes for the spreadsheet data to get uploaded. There should be around 55k watchlist items.
