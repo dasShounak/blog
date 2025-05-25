@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: PwnedLabs | Breach in the Cloud Writeup
+title: Breach in the Cloud Writeup - PwnedLabs
 publishDate: 2025-05-23T23:29:00.000Z
 description: A beginner lab from PwnedLabs based on AWS CloudTrail log analysis
   and AWS S3 enumeration.
@@ -24,10 +24,11 @@ for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; don
 ```
 
 Command breakdown:
-- `for file in *.json; do`: Iterates through all the files with a `.json` extension in the current working directory.
-- `jq . "$file"`: Prettifies the content of the file and prints to the standard output. Here `$file` points to a JSON file in each iteration of the for loop.
-- `> "$file.tmp"`: Instead of printing the contents to the standard output, write the output to a new file of the same name after appending with `.tmp`. So it will create a new file of the same but with a `.tmp` extension.
-- `&& mv "$file.tmp" "$file"; done`: This command basically overwrites the original file with the contents of the new file and deletes the new file. So at the end of execution, we have the same files with the same names, but the contents are now entirely formatted.
+
+* `for file in *.json; do`: Iterates through all the files with a `.json` extension in the current working directory.
+* `jq . "$file"`: Prettifies the content of the file and prints to the standard output. Here `$file` points to a JSON file in each iteration of the for loop.
+* `> "$file.tmp"`: Instead of printing the contents to the standard output, write the output to a new file of the same name after appending with `.tmp`. So it will create a new file of the same but with a `.tmp` extension.
+* `&& mv "$file.tmp" "$file"; done`: This command basically overwrites the original file with the contents of the new file and deletes the new file. So at the end of execution, we have the same files with the same names, but the contents are now entirely formatted.
 
 ## Finding AWS principals in the logs
 
@@ -43,9 +44,9 @@ This command will search for the keyword "userName" across all the log files in 
 
 Observations after investigating the first few logs for `temp-user`:
 
-- `107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json`: Issued the `GetCallerIdentity` command
-- `107513503799_CloudTrail_us-east-1_20230826T2040Z_UkDeakooXR09uCBm.json`: Attempted to issue `ListObjects`, access denied
-- `107513503799_CloudTrail_us-east-1_20230826T2050Z_iUtQqYPskB20yZqT.json`: Attempted to issue `ListAccountAliases`, `ListAuthorizers` and many commands, all access denied
+* `107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json`: Issued the `GetCallerIdentity` command
+* `107513503799_CloudTrail_us-east-1_20230826T2040Z_UkDeakooXR09uCBm.json`: Attempted to issue `ListObjects`, access denied
+* `107513503799_CloudTrail_us-east-1_20230826T2050Z_iUtQqYPskB20yZqT.json`: Attempted to issue `ListAccountAliases`, `ListAuthorizers` and many commands, all access denied
 
 On further investigation, I found that the attacker tried to issue a lot of commands which raised over 400 error messages in one log. Finally, the attacker was able to issue the `AssumeRole` command successfully and acquired the `AdminRole`. Following this step, the attacker was successful to download a file `emergency.txt` from the `emergency-data-recovery.s3.amazonaws.com` bucket.
 
