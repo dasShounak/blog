@@ -4,8 +4,9 @@ title: Identifying AWS Account ID from a public S3 bucket - PwnedLabs
 publishDate: 2025-05-26T01:19:00.000Z
 description: A quick walk-through for finding AWS Account IDs from public AWS S3 buckets.
 tags:
-  - aws
+  - pwnedlabs
   - writeup
+  - aws
 ---
 This lab provided an IP address on which a website was hosted. The challenge was to find the link to a publicly disclosed AWS S3 bucket, and then find the AWS Account ID which owns the bucket.
 
@@ -29,7 +30,7 @@ s3-account-search arn:aws:iam::427648302155:role/LeakyBucket mega-big-tech
 
 That's it. The account ID is **107513503799**. You can even find a public EC2 snapshot owned by this user. That's crazy.
 
-!\[[Screenshot 2025-05-25 000546.png]]
+![AWS EC2 public snapshots](/images/uploads/screenshot-2025-05-25-000546.png)
 
 Now for the additional challenge, they asked to find a AWS CLI command to list public EBS snapshots, *i.e.* the same thing above but through a CLI command.
 
