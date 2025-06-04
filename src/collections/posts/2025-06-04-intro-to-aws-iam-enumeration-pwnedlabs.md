@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Intro to AWS IAM Enumeration | PwnedLabs
+title: Intro to AWS IAM Enumeration - PwnedLabs
 publishDate: 2025-06-04T15:55:00.000Z
 description: Master AWS IAM basics with this hands-on lab, diving into AWS CLI
   and enumeration of users, roles, groups, and policies for cloud security.
@@ -73,8 +73,8 @@ I found a couple of policies attached to the user. Attached user policies are ma
 
 The two user policies are:
 
-- `AmazonGuardDutyReadOnlyAccess` - Amazon managed
-- `dev01` - customer managed
+* `AmazonGuardDutyReadOnlyAccess` - Amazon managed
+* `dev01` - customer managed
 
 Apart from these, I found one inline user policy. Inline user policies are embedded directly into the AWS IAM user, group or role and are not reusable like attached user policies.
 
@@ -339,9 +339,9 @@ Now, the final policy - `S3_Access`. I found that it would allow me to list and 
 
 Summing up everything, I found that:
 
-- using the Amazon managed policy, I could access Amazon GuardDuty
-- using the customer managed policy, I could assume the role `BackendDev` and using its attached policy, I could list and retrieve information on secrets stored in Secrets Manager
-- using the inline policy, I could list and retrieve objects stored in a S3 bucket.
+* using the Amazon managed policy, I could access Amazon GuardDuty
+* using the customer managed policy, I could assume the role `BackendDev` and using its attached policy, I could list and retrieve information on secrets stored in Secrets Manager
+* using the inline policy, I could list and retrieve objects stored in a S3 bucket.
 
 To find the flag, I listed the objects stored in the S3 bucket.
 
