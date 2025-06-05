@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: THM Agent Sudo Writeup
+title: TryHackMe Agent Sudo Writeup
 publishDate: 2023-12-04T11:24:00.000Z
 description: Walk-through of TryHackMe Agent Sudo CTF room.
 tags:
