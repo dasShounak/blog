@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: THM Ice Writeup
+title: TryHackMe Ice Writeup
 publishDate: 2023-12-08T17:12:00.000Z
 description: A step-by-step walk-through of the TryHackMe CTF room - Ice. Its
   based on CVE-2004-1561, a buffer overflow vulnerability on Icecast, a
