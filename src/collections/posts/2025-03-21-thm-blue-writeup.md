@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: THM Blue Writeup
+title: TryHackMe Blue Writeup
 publishDate: 2023-12-02T23:15:00.000Z
 description: Step by step walkthrough of the TryHackMe Blue room. This is an
   easy windows machine based on the EternalBlue exploit (CVE-2017-0144).
