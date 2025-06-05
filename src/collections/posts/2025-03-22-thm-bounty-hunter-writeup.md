@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: THM Bounty Hunter Writeup
+title: TryHackMe Bounty Hunter Writeup
 publishDate: 2023-12-03T12:09:00.000Z
 description: Step-by-step walkthrough of TryhackMe Bounty Hunter room. This is
   an easy room, great for learning about Nmap, FTP, Hydra and privilege
