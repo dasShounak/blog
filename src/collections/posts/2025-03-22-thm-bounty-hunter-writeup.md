@@ -1,8 +1,8 @@
 ---
 layout: blog
-title: TryHackMe Bounty Hunter Writeup
+title: TryHackMe Bounty Hacker Writeup
 publishDate: 2023-12-03T12:09:00.000Z
-description: Step-by-step walkthrough of TryhackMe Bounty Hunter room. This is
+description: Step-by-step walkthrough of TryhackMe Bounty Hacker room. This is
   an easy room, great for learning about Nmap, FTP, Hydra and privilege
   escalation.
 tags:
