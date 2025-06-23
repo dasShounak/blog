@@ -1,6 +1,9 @@
 ---
 import ProjectTools from "./project_tools.astro";
 const { title, description, date, url, toolsArray } = Astro.props;
+const isGithub = url.includes("github");
+const iconClass = isGithub ? "fa-brands fa-github" : "fa-solid fa-globe";
+const linkText = isGithub ? "Github Repository" : "Read More";
 ---
 
 <div id="project-card" class="mb-4 p-4 bg-slate-950 rounded-md border border-teal-700 hover:border-teal-600 hover:bg-slate-900/60 hover:shadow-slate-900 shadow-xl sm:hover:-translate-y-0.5 transition-all duration-300 flex flex-col break-inside-avoid">
@@ -22,7 +25,9 @@ const { title, description, date, url, toolsArray } = Astro.props;
     <p class="text-slate-500">{date}</p>
     <p class="text-slate-500">&middot;</p>
     <div class="max-lg:underline max-lg:text-teal-500">
-      <a href={url} target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github mr-1"></i>Github Repository</a>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <i className={`${iconClass} mr-1`}></i>{linkText}
+      </a>
     </div>
   </div>
 </div>
