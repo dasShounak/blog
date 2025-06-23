@@ -1,5 +1,13 @@
 [[projects]]
 id = 1
+title = "Cloud-based SOC lab"
+description = "A SOC lab built on Microsoft Azure with Sentinel to simulate a real-world environment to monitor brute-force attacks in real time."
+date = "April 2025"
+url = "https://shounakdas.netlify.app/blog/2025-04-30-building-a-cloud-based-home-soc-lab-with-microsoft-sentinel/"
+tools = ["azure","KQL"]
+
+[[projects]]
+id = 2
 title = "coffeebean"
 description = "Writing a compiler in Rust."
 date = "January 2024"
@@ -7,26 +15,11 @@ url = "https://github.com/dasShounak/coffeebean"
 tools = ["rust"]
 
 [[projects]]
-id = 2
+id = 3
 title = "bettercp"
 description = "A command line tool written in Rust as an alternative for `cp` command"
 date = "March 2023"
 url = "https://github.com/dasShounak/bettercp"
 tools = ["rust"]
 
-[[projects]]
-id = 3
-title = "Cordppuccin"
-description = "BetterDiscord theme based on the popular Catppuccin colorscheme forked from Dyzean/Simplify"
-date = "March 2023"
-url = "https://github.com/dasShounak/Cordppuccin"
-tools = ["css"]
-
-[[projects]]
-id = 4
-title = "noc"
-description = "A visually pleasing dark theme for VSCode." 
-date = "August 2021"
-url = "https://github.com/dasShounak/noc"
-tools = ["json"]
 
