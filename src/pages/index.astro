@@ -33,7 +33,7 @@ const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) -
       <PageTitle title="new posts" />
     </div>
     <h2 class="hidden sm:block text-md text-left sm:mt-5">
-      <a href="blog/" class="before:content-['['] after:content-[']'] text-teal-500">view all</a>
+      <a href="blog/" class="before:content-['['] after:content-[']'] text-teal-500">see all posts</a>
     </h2>
   </div>
   <div class="grow">
@@ -53,9 +53,11 @@ const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) -
     </BlogGrid>
   </div>
   <div class="w-full flex sm:hidden items-baseline justify-between px-3">
-    <h2 class="text-md font-mono font-medium my-4 px-3 py-2 grow uppercase text-center bg-slate-900 border border-teal-800 rounded-md active:bg-slate-700 transition duration-300">
-      <a href="blog/">View all posts <i class="fa-solid fa-arrow-right" /> </a>
-    </h2>
+    <a href="blog/" class="w-full">
+      <h2 class="text-md font-mono font-medium my-4 px-3 py-2 grow uppercase text-center bg-slate-900 border border-teal-800 rounded-md active:bg-slate-700 transition duration-300">
+        See all posts <i class="fa-solid fa-arrow-right" />
+      </h2>
+    </a>
   </div>
 </section>
 <section class="mt-10">
