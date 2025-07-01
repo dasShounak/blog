@@ -7,18 +7,24 @@ const { title, url, date, tags } = Astro.props;
 
 <li>
         <div class="sm:flex max-w-full items-center mb-8 sm:mb-0">
-            <div id="post-title" class="font-display text-xl sm:text-lg sm:whitespace-nowrap overflow-hidden overflow-ellipsis">
-                <a href={`/blog/${url}`}>{title}</a>
+            <div id="post-title" class="font-display group text-xl sm:text-lg sm:whitespace-nowrap overflow-hidden overflow-ellipsis">
+              <span class="text-teal-500 mr-1 select-none group-hover:text-teal-300 transition-all">&gt;</span>
+              <a href={`/blog/${url}`}>{title}</a>
             </div>
             <div class="ml-auto flex items-center whitespace-nowrap">
-                <div id="taglist" class="flex space-x-2 sm:pr-2 scale-90 order-last sm:order-first">
+                <div id="taglist" class="hidden sm:flex flex-wrap justify-end gap-2 sm:pr-2 scale-90 order-last sm:order-first">
                     {
-                        tags.map((tag) => ( <Tag url={tag}>{tag}</Tag> ))
+                    tags.slice(0, 3).map((tag) => ( <Tag url={tag}>{tag}</Tag> ))
                     }
                 </div>
-                <div id="post-publish-date" class="mr-auto mt-auto sm:mt-0 sm:ml-auto text-sm">{date}</div>
+                <div id="post-publish-date" class="mr-auto mt-2 sm:mt-0 sm:ml-auto text-sm text-slate-500">{date}</div>
             </div>
-            <div class="sm:hidden mt-2">
+            <div class="sm:hidden flex flex-wrap gap-2 mt-4">
+                    {
+                    tags.map((tag) => ( <Tag url={tag}>{tag}</Tag> ))
+                    }
+            </div>
+            <div class="sm:hidden mt-4">
                 <TextLink url=`/blog/${url}`>Read more</TextLink>
             </div>
         <MobileHorizontalRule />
