@@ -12,7 +12,7 @@ const { title, url, date, tags } = Astro.props;
               <a href={`/blog/${url}`}>{title}</a>
             </div>
             <div class="ml-auto flex items-center whitespace-nowrap">
-                <div id="taglist" class="hidden sm:flex flex-wrap justify-end gap-2 sm:pr-2 scale-90 order-last sm:order-first">
+                <div id="taglist" class="hidden sm:flex max-sm:flex-wrap justify-end gap-2 sm:pr-2 scale-90 order-last sm:order-first">
                     {
                     tags.slice(0, 3).map((tag) => ( <Tag url={tag}>{tag}</Tag> ))
                     }
