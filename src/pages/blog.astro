@@ -8,11 +8,12 @@ import { getCollection } from "astro:content";
 
 const pageHeader = "ls /blog";
 const pageTitle = "Blog";
+const description = "Browse all writeups and articles in one place. Learn how real attacks work and how to defend against them.";
 const allBlogPosts = await getCollection("blog");
 const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) - Date.parse(a.data.publishDate));
 ---
 
-<Base title={pageTitle}>
+<Base title={pageTitle} description={description} >
 <div class="flex items-baseline justify-between reset-a">
     <PageTitle title={pageHeader} />
     <div id="rss-btn" class="cursor-pointer whitespace-nowrap">

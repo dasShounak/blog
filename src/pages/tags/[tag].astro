@@ -24,7 +24,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Base title={`Posts tagged #${tag}`}>
+<Base title={`Posts tagged #${tag}`} description=`Browse all blog posts tagged #${tag}`>
 <PageTitle title={`ls /blog | grep '${tag}'`} mobileTitle={tag} />
 <div class="-mt-8">
 <TextLink url="/blog">All topics</TextLink>

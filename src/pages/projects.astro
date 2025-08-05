@@ -6,9 +6,10 @@ import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
 const pageHeader = "ls /projects";
 const pageTitle = "Projects";
+const description = "Some of my best works in cybersecurity and programming."
 ---
 
-<Base title={pageTitle}>
+<Base title={pageTitle} description={description} >
 <PageTitle title={pageHeader} />
 <p class="text-sm before:content-['['] after:content-[']'] text-teal-600 -mt-12 mb-10">
 <a href="https://github.com/dasShounak?tab=repositories" target="_blank" rel="noopener noreferrer">View all GitHub repositories &rarr;</a>

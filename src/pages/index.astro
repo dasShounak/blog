@@ -9,11 +9,12 @@ import BlogGridCard from "../components/blog_grid_card.astro";
 import PageTitle from "../components/page_title.astro";
 import { getCollection } from "astro:content";
 const pageTitle = "Home";
+const description = "Simplifying cybersecurity for beginners, from CTF challenges to real-world attack breakdowns.";
 const allBlogPosts = await getCollection("blog");
 const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) - Date.parse(a.data.publishDate));
 ---
 
-<Base title={pageTitle}>
+<Base title={pageTitle} description={description}>
 <!-- TODO: Tags list -->
 <section class="flex flex-col md:flex-row justify-start space-y-10 md:space-y-0 md:space-x-10 items-center h-[60vh] mt-8 px-3 md:px-0">
   <div class="container w-52 h-52 rounded-full object-contain overflow-hidden border-2 border-teal-500 grow shrink-0">
@@ -22,8 +23,8 @@ const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) -
   <div class="grow-0 shrink basis-auto">
     <h1 class="text-4xl font-semibold mb-4">Hi! I'm Shounak <span class="hidden sm:inline-block">👋</span></h1>
     <div class="flex flex-col space-y-4 text-justify md:text-left text-md md:text-lg leading-relaxed">
-      <p>I'm passionate about both cybersecurity and web development. Whether it is securing web applications or delving into the latest hacking techniques, I am eager to share my journey and insights.</p>
-      <p>So join me on this exciting tech adventure as we try to solve real-world problems and stay ahead in this ever-evolving field!</p>
+      <p>I'm a cybersecurity specialist. Whether it is solving Capture The Flag challenges or delving into the latest hacking techniques, I am eager to share my journey and insights.</p>
+      <p>So join me on this exciting adventure as I try to make security accessible for everyone and stay ahead in this ever-evolving field!</p>
     </div>
   </div>
 </section>
@@ -70,9 +71,9 @@ const sortedPosts = allBlogPosts.sort((a, b) => Date.parse(b.data.publishDate) -
       <span class="ml-4 text-slate-400 text-xs font-mono select-none">terminal</span>
     </div>
     <div class="font-mono text-sm">
-      <p class="text-teal-400"><span class="select-none">$ </span>ssh admin@shounakdas.netlify.me</p>
+      <p class="text-teal-400"><span class="select-none">$ </span>ssh admin@shounakdas.org</p>
       <p class="text-white">Enter password: ************</p>
-      <p class="text-white">Connected to Netlify terminal...</p>
+      <p class="text-white">Connected to admin terminal...</p>
       <p class="text-teal-400"><span class="select-none">$ </span>cat contact_info.txt</p>
       <p class="text-white">Name: Shounak Das
       <br />Address: Kolkata, IN
