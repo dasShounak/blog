@@ -5,6 +5,7 @@ export default {
 	theme: {
 		fontFamily: {
 			display: ["'Syne Variable'", ...defaultTheme.fontFamily.sans],
+			body: ["'Space Grotesk'", ...defaultTheme.fontFamily.sans],
 		},
 		extend: {
 			fontFamily: {
