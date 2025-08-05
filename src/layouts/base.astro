@@ -7,12 +7,14 @@ import "@fontsource/space-mono";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/syne";
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>{`Shounak Das ▸ ${title}`}</title>
+    <meta name="description" content={description} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +24,6 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="google-site-verification" content="bi8yjK7d95OocJBju4URgHNWzFgTNScbx3a0V10t-3g" />
-    <title>{`Shounak Das :: ${title}`}</title>
     <script src="https://kit.fontawesome.com/0a41cee954.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

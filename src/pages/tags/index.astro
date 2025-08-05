@@ -6,9 +6,10 @@ import TagList from "../../components/tag_list.astro";
 
 const pageHeader = "cat tags";
 const pageTitle = "All Tags";
+const description = "Looking for something specific? View all tags and quickly find blog posts by topic or technique.";
 ---
 
-<Base title={pageTitle}>
+<Base title={pageTitle} description={description}>
   <PageTitle title={pageHeader} />
   <ul class="flex flex-col items-center scale-125 font-semibold">
     <TagList classList="mb-5" />

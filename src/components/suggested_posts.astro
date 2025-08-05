@@ -7,7 +7,7 @@ const suggestedPosts = getSuggestedPosts(allPosts, currentUrl, currentTags);
 ---
 {suggestedPosts.length > 0 && (
 <div class="px-2 sm:px-5 lg:px-10 mt-10">
-  <h3 class="text-2xl mb-4">Suggested posts:</h3>
+  <h2 class="text-2xl mb-4 font-body">Suggested posts:</h2>
   <BlogGrid>
   {suggestedPosts.map(post => (
   <BlogGridCardLite url={post.id} title={post.data.title} date={post.data.publishDate.toUTCString().slice(4, 16)} description={post.data.description} />
