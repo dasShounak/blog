@@ -1,8 +1,9 @@
 // Import glob loader
 import { glob, file } from "astro/loaders";
 // 1. Import utilities from `astro:content`
-import { z, defineCollection } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { parse as parseToml } from "toml";
+import { z } from "astro/zod";
 
 // 2. Define a `loader` and `schema` for each collection
 const blog = defineCollection({
@@ -22,7 +23,7 @@ const projects = defineCollection({
         title: z.string(),
         description: z.string(),
         date: z.string(),
-        url: z.string().url().optional(),
+        url: z.url().optional(),
         tools: z.array(z.string()),
     })
 })
